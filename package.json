@@ -10,7 +10,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "semiotic": "1.20.5"
+    "react-scrollama": "^2.2.10",
+    "semiotic": "1.20.5",
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
