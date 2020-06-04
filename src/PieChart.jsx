@@ -1,13 +1,17 @@
 import React from "react";
 import OrdinalFrame from "semiotic/lib/OrdinalFrame";
+import styled from "styled-components";
 
-const PieChart = () => {
+const Chart = styled(OrdinalFrame)`
+  position: sticky;
+  top: 0;
+  height: 100%;
+`;
+
+const PieChart = ({ data }) => {
   const frameProps = {
     /* --- Data --- */
-    data: [
-      { race: "Black", population: 5000 },
-      { race: "White", population: 40000 },
-    ],
+    data,
 
     /* --- Size --- */
     size: [300, 300],
@@ -22,14 +26,14 @@ const PieChart = () => {
     oAccessor: "race",
 
     /* --- Customize --- */
-    style: { fill: "#ac58e5", stroke: "white" },
+    style: { fill: "#2d4c80", stroke: "white" },
     title: "Population",
 
     /* --- Annotate --- */
     oLabel: true,
   };
 
-  return <OrdinalFrame {...frameProps} />;
+  return <Chart {...frameProps} />;
 };
 
 export default PieChart;

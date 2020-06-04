@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import styled, { createGlobalStyle } from "styled-components";
 import PieChart from "./PieChart.jsx";
+import _ from "lodash";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -30,6 +31,7 @@ const ScrollamaWrapper = styled.div`
 
 const StepWrapper = styled.div`
   margin: 50vh 0;
+  font-size: 50px;
 `;
 
 function App() {
@@ -43,6 +45,11 @@ function App() {
       { race: "Black", population: 40000 },
       { race: "White", population: 5000 },
     ],
+    1980: [
+      { race: "Black", population: 300 },
+      { race: "White", population: 300 },
+      { race: "Asian", population: 300 },
+    ],
   };
 
   const [year, setYear] = useState(null);
@@ -55,12 +62,12 @@ function App() {
     <>
       <GlobalStyle />
       <AppWrapper>
-        <PieChart />
+        <PieChart data={data[year]} />
         <ScrollamaWrapper>
-          <Scrollama>
-            {[1960, 1970].map((year) => (
+          <Scrollama onStepEnter={onStepEnter} offset={0.5}>
+            {_.keys(data).map((year) => (
               <Step data={year} key={year}>
-                <StepWrapper>Step {year}</StepWrapper>
+                <StepWrapper>{year}</StepWrapper>
               </Step>
             ))}
           </Scrollama>
