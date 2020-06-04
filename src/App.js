@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import styled, { createGlobalStyle } from "styled-components";
-import PieChart from "./PieChart.jsx";
+import BarChart from "./BarChart.jsx";
 import _ from "lodash";
+
+import { spells, characterLines } from "./data/data.js";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -22,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
 
 const AppWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
 `;
 
 const ScrollamaWrapper = styled.div`
@@ -34,44 +37,64 @@ const StepWrapper = styled.div`
   font-size: 50px;
 `;
 
-function App() {
-  // TODO: read it in from a .csv file
-  const data = {
-    1960: [
-      { race: "Black", population: 5000 },
-      { race: "White", population: 40000 },
-    ],
-    1970: [
-      { race: "Black", population: 40000 },
-      { race: "White", population: 5000 },
-    ],
-    1980: [
-      { race: "Black", population: 300 },
-      { race: "White", population: 300 },
-      { race: "Asian", population: 300 },
-    ],
-  };
+const ChartWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
-  const [year, setYear] = useState(null);
+function App() {
+  const [book, setBook] = useState(null);
 
   const onStepEnter = ({ data }) => {
-    setYear(data);
+    setBook(data);
   };
 
   return (
     <>
       <GlobalStyle />
       <AppWrapper>
-        <PieChart data={data[year]} />
+        <ChartWrapper>
+          <BarChart
+            data={spells[book]}
+            xAxis={"spell"}
+            yAxis={"mentions"}
+            title="Spell Use"
+            stickTo="top"
+          />
+          <BarChart
+            data={characterLines[book]}
+            xAxis={"character"}
+            yAxis={"lines"}
+            title="Character Lines"
+            stickTo="bottom"
+          />
+        </ChartWrapper>
         <ScrollamaWrapper>
           <Scrollama onStepEnter={onStepEnter} offset={0.5}>
-            {_.keys(data).map((year) => (
-              <Step data={year} key={year}>
-                <StepWrapper>{year}</StepWrapper>
+            {[1, 2, 3, 4, 5, 6, 7].map((book) => (
+              <Step data={book} key={book}>
+                <StepWrapper>{book}</StepWrapper>
               </Step>
             ))}
           </Scrollama>
         </ScrollamaWrapper>
+        <ChartWrapper>
+          <BarChart
+            data={spells[book]}
+            xAxis={"spell"}
+            yAxis={"mentions"}
+            title="Spell Use"
+            stickTo="top"
+          />
+          <BarChart
+            data={characterLines[book]}
+            xAxis={"character"}
+            yAxis={"lines"}
+            title="Character Lines"
+            stickTo="bottom"
+          />
+        </ChartWrapper>
       </AppWrapper>
     </>
   );

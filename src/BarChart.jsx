@@ -4,11 +4,11 @@ import styled from "styled-components";
 
 const Chart = styled(OrdinalFrame)`
   position: sticky;
-  top: 0;
-  height: 100%;
+  top: ${(prop) => (prop.stickTo == "top" ? 0 : null)};
+  bottom: ${(prop) => (prop.stickTo == "bottom" ? 0 : null)};
 `;
 
-const PieChart = ({ data }) => {
+const BarChart = ({ data, xAxis, yAxis, title, stickTo }) => {
   const frameProps = {
     /* --- Data --- */
     data,
@@ -19,21 +19,20 @@ const PieChart = ({ data }) => {
 
     /* --- Layout --- */
     type: "bar",
-    projection: "radial",
-    dynamicColumnWidth: "population",
 
     /* --- Process --- */
-    oAccessor: "race",
+    oAccessor: xAxis,
+    rAccessor: yAxis,
 
     /* --- Customize --- */
     style: { fill: "#2d4c80", stroke: "white" },
-    title: "Population",
+    title,
 
     /* --- Annotate --- */
     oLabel: true,
   };
 
-  return <Chart {...frameProps} />;
+  return <Chart {...frameProps} stickTo={stickTo} />;
 };
 
-export default PieChart;
+export default BarChart;
