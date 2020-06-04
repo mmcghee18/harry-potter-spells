@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import styled, { createGlobalStyle } from "styled-components";
 import BarChart from "./BarChart.jsx";
+import LineChart from "./LineChart.jsx";
 import _ from "lodash";
 
-import { spells, characterLines } from "./data/data.js";
+import { spells, characterLines, bookPages } from "./data/data.js";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -80,19 +81,11 @@ function App() {
           </Scrollama>
         </ScrollamaWrapper>
         <ChartWrapper>
-          <BarChart
-            data={spells[book]}
-            xAxis={"spell"}
-            yAxis={"mentions"}
-            title="Spell Use"
+          <LineChart
+            data={[bookPages]}
+            xAxis={"bookNum"}
+            yAxis={"pages"}
             stickTo="top"
-          />
-          <BarChart
-            data={characterLines[book]}
-            xAxis={"character"}
-            yAxis={"lines"}
-            title="Character Lines"
-            stickTo="bottom"
           />
         </ChartWrapper>
       </AppWrapper>

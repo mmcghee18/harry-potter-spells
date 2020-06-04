@@ -93,13 +93,16 @@ const characterLines = {
 };
 
 const bookPages = {
-  1: 309,
-  2: 341,
-  3: 435,
-  4: 734,
-  5: 870,
-  6: 652,
-  7: 759,
+  title: "Page Counts",
+  coordinates: [
+    { bookNum: 1, pages: 309 },
+    { bookNum: 2, pages: 341 },
+    { bookNum: 3, pages: 435 },
+    { bookNum: 4, pages: 734 },
+    { bookNum: 5, pages: 870 },
+    { bookNum: 6, pages: 652 },
+    { bookNum: 7, pages: 759 },
+  ],
 };
 
 const topWords = {
