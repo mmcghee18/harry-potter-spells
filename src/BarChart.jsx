@@ -14,8 +14,8 @@ const BarChart = ({ data, xAxis, yAxis, title, stickTo }) => {
     data,
 
     /* --- Size --- */
-    size: [300, 300],
-    margin: 70,
+    size: [350, 350],
+    margin: 100,
 
     /* --- Layout --- */
     type: "bar",
@@ -29,7 +29,11 @@ const BarChart = ({ data, xAxis, yAxis, title, stickTo }) => {
     title,
 
     /* --- Annotate --- */
-    oLabel: true,
+    oLabel: (d) => (
+      <text fontSize={14} transform="rotate(45)">
+        {d}
+      </text>
+    ),
   };
 
   return <Chart {...frameProps} stickTo={stickTo} />;
