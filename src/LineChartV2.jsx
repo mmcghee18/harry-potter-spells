@@ -1,8 +1,16 @@
 import React from "react";
 import { line } from "d3-shape";
-import { scaleQuantize, scaleLinear } from "d3-scale";
+import { scaleLinear } from "d3-scale";
+import styled from "styled-components";
 
-const LineChartV2 = ({ data, xAxis, yAxis }) => {
+const SVGContainer = styled.svg`
+  position: sticky;
+  top: ${(prop) => (prop.stickTo == "top" ? 0 : null)};
+  bottom: ${(prop) => (prop.stickTo == "bottom" ? 0 : null)};
+  margin: 30px;
+`;
+
+const LineChartV2 = ({ data, xAxis, yAxis, stickTo }) => {
   console.log(data.coordinates);
 
   const screenWidth = window.innerWidth;
@@ -20,16 +28,16 @@ const LineChartV2 = ({ data, xAxis, yAxis }) => {
     .y((d) => yScale(d[yAxis]));
 
   return (
-    <svg
+    <SVGContainer
       width={dimensions.width}
       height={dimensions.height}
-      style={{ margin: "30px" }}
+      stickTo={stickTo}
     >
       <path
         style={{ fill: "none", stroke: "steelblue", strokeWidth: 1.5 }}
         d={pathGenerator(data.coordinates)}
       />
-    </svg>
+    </SVGContainer>
   );
 };
 

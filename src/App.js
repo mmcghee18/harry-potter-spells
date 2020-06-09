@@ -94,11 +94,12 @@ function App() {
           <LineChartV2
             data={{
               title: bookPages.title,
-              //coordinates: bookPages.coordinates.slice(0, book),
-              coordinates: bookPages.coordinates,
+              coordinates: bookPages.coordinates.slice(0, book),
+              //coordinates: bookPages.coordinates,
             }}
             xAxis={"bookNum"}
             yAxis={"pages"}
+            stickTo="top"
           />
         </ChartWrapper>
       </AppWrapper>
