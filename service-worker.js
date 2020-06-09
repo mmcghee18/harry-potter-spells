@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/scrollytelling-charts/precache-manifest.ceb363f40dd7ca5ff450bcd24e5b5b8b.js"
+  "/scrollytelling-charts/precache-manifest.7e0bb355eb622b98160bd820d5ecc4a9.js"
 );
 
 self.addEventListener('message', (event) => {
