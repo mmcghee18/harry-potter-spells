@@ -3,6 +3,7 @@ import { Scrollama, Step } from "react-scrollama";
 import styled, { createGlobalStyle } from "styled-components";
 import BarChart from "./BarChart.jsx";
 import LineChart from "./LineChart.jsx";
+import LineChartV2 from "./LineChartV2.jsx";
 import _ from "lodash";
 
 import { spells, characterLines, bookPages } from "./data/data.js";
@@ -81,11 +82,23 @@ function App() {
           </Scrollama>
         </ScrollamaWrapper>
         <ChartWrapper>
-          <LineChart
-            data={[bookPages]}
+          {/* <LineChart
+            data={{
+              title: bookPages.title,
+              coordinates: bookPages.coordinates.slice(0, book),
+            }}
             xAxis={"bookNum"}
             yAxis={"pages"}
             stickTo="top"
+          /> */}
+          <LineChartV2
+            data={{
+              title: bookPages.title,
+              //coordinates: bookPages.coordinates.slice(0, book),
+              coordinates: bookPages.coordinates,
+            }}
+            xAxis={"bookNum"}
+            yAxis={"pages"}
           />
         </ChartWrapper>
       </AppWrapper>
