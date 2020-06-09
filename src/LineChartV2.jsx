@@ -3,7 +3,7 @@ import { line } from "d3-shape";
 import { scaleLinear } from "d3-scale";
 import useChartDimensions from "./hooks/useChartDimensions.js";
 import styled from "styled-components";
-import Axis from "./Axis";
+import Axes from "./Axes";
 
 const ChartContainer = styled.div`
   position: sticky;
@@ -24,12 +24,11 @@ const LineChartV2 = ({ data, x, y, stickTo }) => {
   const chartSettings = {
     marginTop: 20,
     marginBottom: 20,
-    marginLeft: 20,
+    marginLeft: 50,
     marginRight: 50,
   };
 
   const [ref, dms] = useChartDimensions(chartSettings);
-  console.log(dms);
 
   const xScale = scaleLinear().domain([1, 7]).range([0, dms.boundedWidth]);
   const yScale = scaleLinear().domain([0, 900]).range([dms.boundedHeight, 0]);
@@ -48,10 +47,13 @@ const LineChartV2 = ({ data, x, y, stickTo }) => {
             )})`}
           >
             {/* Axis layer */}
-            <Axis
-              domain={[1, 7]}
-              range={[0, dms.boundedWidth]}
-              numTicks={7}
+            <Axes
+              domainX={[1, 7]}
+              rangeX={[0, dms.boundedWidth]}
+              domainY={[0, 900]}
+              rangeY={[dms.boundedHeight, 0]}
+              numTicksX={7}
+              numTicksY={10}
               dms={dms}
             />
             {/* Plot layer */}
