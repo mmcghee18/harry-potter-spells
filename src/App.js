@@ -97,8 +97,8 @@ function App() {
               coordinates: bookPages.coordinates.slice(0, book),
               //coordinates: bookPages.coordinates,
             }}
-            xAxis={"bookNum"}
-            yAxis={"pages"}
+            x={"bookNum"}
+            y={"pages"}
             stickTo="top"
           />
         </ChartWrapper>
