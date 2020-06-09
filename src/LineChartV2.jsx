@@ -1,5 +1,6 @@
 import React from "react";
 import { line } from "d3-shape";
+import { useSpring, useTransition, animated } from "react-spring";
 import { scaleLinear } from "d3-scale";
 import useChartDimensions from "./hooks/useChartDimensions.js";
 import styled from "styled-components";
@@ -14,13 +15,6 @@ const ChartContainer = styled.div`
 `;
 
 const LineChartV2 = ({ data, x, y, stickTo }) => {
-  // const screenWidth = window.innerWidth;
-  // const chartWidth = screenWidth / 3;
-  // const dimensions = {
-  //   width: chartWidth,
-  //   height: chartWidth * 0.85,
-  // };
-
   const chartSettings = {
     marginTop: 20,
     marginBottom: 20,
@@ -36,6 +30,17 @@ const LineChartV2 = ({ data, x, y, stickTo }) => {
   const pathGenerator = line()
     .x((d) => xScale(d[x]))
     .y((d) => yScale(d[y]));
+
+  const currentData = data.coordinates;
+  const transitions = useTransition(
+    currentData,
+    (currentData) => currentData.bookNum,
+    {
+      from: { strokeDashoffset: dms.width, strokeOpacity: 0.8 },
+      enter: { strokeDashoffset: 0, strokeOpacity: 1 },
+      leave: { strokeDashoffset: 0 },
+    }
+  );
 
   return (
     <>
@@ -58,10 +63,21 @@ const LineChartV2 = ({ data, x, y, stickTo }) => {
             />
             {/* Plot layer */}
             <g>
-              <path
-                style={{ fill: "none", stroke: "steelblue", strokeWidth: 1.5 }}
-                d={pathGenerator(data.coordinates)}
-              />
+              {transitions.map(({ item, props, key }) => {
+                console.log(item, props, key);
+                return (
+                  <animated.path
+                    key={key}
+                    style={{
+                      fill: "none",
+                      stroke: "steelblue",
+                      strokeWidth: 1.5,
+                      strokeDasharray: dms.width * 2,
+                    }}
+                    d={pathGenerator(data.coordinates)}
+                  />
+                );
+              })}
             </g>
           </g>
         </svg>
