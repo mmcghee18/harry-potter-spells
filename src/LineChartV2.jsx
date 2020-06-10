@@ -5,6 +5,7 @@ import { scaleLinear } from "d3-scale";
 import useChartDimensions from "./hooks/useChartDimensions.js";
 import styled from "styled-components";
 import Axes from "./Axes";
+import _ from "lodash";
 
 const ChartContainer = styled.div`
   position: sticky;
@@ -28,11 +29,12 @@ const LineChartV2 = ({ data, x, y, stickTo }) => {
   const yScale = scaleLinear().domain([0, 900]).range([dms.boundedHeight, 0]);
 
   const items = data.coordinates;
+  const itemKeys = _.map(items, (item) => item.key);
 
   const transitions = useTransition(items, (item) => item.key, {
     from: { strokeDashoffset: dms.width },
-    enter: { strokeDashoffset: 0, strokeOpacity: 1 },
-    leave: { strokeDashoffset: dms.width, strokeOpacity: 0 },
+    enter: { strokeDashoffset: 0 },
+    leave: { strokeDashoffset: dms.width },
   });
 
   return (
@@ -55,47 +57,46 @@ const LineChartV2 = ({ data, x, y, stickTo }) => {
               dms={dms}
             />
             {/* Plot layer */}
+            {items.length === 1 && (
+              <circle
+                cx={xScale(items[0][x])}
+                cy={yScale(items[0][y])}
+                r="3"
+                style={{
+                  fill: "steelblue",
+                }}
+              />
+            )}
             <g>
-              {items.length == 1 ? (
-                <circle
-                  cx={xScale(items[0][x])}
-                  cy={yScale(items[0][y])}
-                  r="3"
-                  style={{
-                    fill: "steelblue",
-                  }}
-                />
-              ) : (
-                transitions.map(({ item, props }) => {
-                  return (
-                    <animated.svg
-                      key={item.key}
-                      strokeDasharray={dms.width}
-                      strokeDashoffset={props.strokeDashoffset}
-                    >
-                      <path
-                        style={{
-                          fill: "none",
-                          stroke: "steelblue",
-                          strokeWidth: 1.5,
-                        }}
-                        d={[
-                          "M",
-                          item.key > 0 && item.key < items.length
-                            ? xScale(items[item.key - 1][x])
-                            : xScale(item[x]),
-                          item.key > 0 && item.key < items.length
-                            ? yScale(items[item.key - 1][y])
-                            : yScale(item[y]),
-                          "L",
-                          xScale(item[x]),
-                          yScale(item[y]),
-                        ].join(" ")}
-                      />
-                    </animated.svg>
-                  );
-                })
-              )}
+              {transitions.map(({ item, props }) => {
+                return (
+                  <animated.svg
+                    key={item.key}
+                    strokeDasharray={dms.width}
+                    strokeDashoffset={props.strokeDashoffset}
+                  >
+                    <path
+                      style={{
+                        fill: "none",
+                        stroke: "steelblue",
+                        strokeWidth: 1.5,
+                      }}
+                      d={[
+                        "M",
+                        item.key > 0
+                          ? xScale(items[item.key - 1][x])
+                          : xScale(item[x]),
+                        item.key > 0
+                          ? yScale(items[item.key - 1][y])
+                          : yScale(item[y]),
+                        "L",
+                        xScale(item[x]),
+                        yScale(item[y]),
+                      ].join(" ")}
+                    />
+                  </animated.svg>
+                );
+              })}
             </g>
           </g>
         </svg>
