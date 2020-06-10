@@ -82,15 +82,6 @@ function App() {
           </Scrollama>
         </ScrollamaWrapper>
         <ChartWrapper>
-          {/* <LineChart
-            data={{
-              title: bookPages.title,
-              coordinates: bookPages.coordinates.slice(0, book),
-            }}
-            xAxis={"bookNum"}
-            yAxis={"pages"}
-            stickTo="top"
-          /> */}
           <LineChartV2
             data={{
               title: bookPages.title,

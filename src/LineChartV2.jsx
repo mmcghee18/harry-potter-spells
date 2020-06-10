@@ -31,16 +31,7 @@ const LineChartV2 = ({ data, x, y, stickTo }) => {
     .x((d) => xScale(d[x]))
     .y((d) => yScale(d[y]));
 
-  const currentData = data.coordinates;
-  const transitions = useTransition(
-    currentData,
-    (currentData) => currentData.bookNum,
-    {
-      from: { strokeDashoffset: dms.width, strokeOpacity: 0.8 },
-      enter: { strokeDashoffset: 0, strokeOpacity: 1 },
-      leave: { strokeDashoffset: 0 },
-    }
-  );
+  console.log(pathGenerator(data.coordinates));
 
   return (
     <>
@@ -63,21 +54,26 @@ const LineChartV2 = ({ data, x, y, stickTo }) => {
             />
             {/* Plot layer */}
             <g>
-              {transitions.map(({ item, props, key }) => {
-                console.log(item, props, key);
-                return (
-                  <animated.path
-                    key={key}
-                    style={{
-                      fill: "none",
-                      stroke: "steelblue",
-                      strokeWidth: 1.5,
-                      strokeDasharray: dms.width * 2,
-                    }}
-                    d={pathGenerator(data.coordinates)}
-                  />
-                );
-              })}
+              {/* <path
+                style={{
+                  fill: "none",
+                  stroke: "steelblue",
+                  strokeWidth: 1.5,
+                }}
+                d={pathGenerator(data.coordinates)}
+              /> */}
+              {data.coordinates.map((d, i) => (
+                <line
+                  x1={i > 0 ? xScale(data.coordinates[i - 1][x]) : xScale(d[x])}
+                  y1={i > 0 ? yScale(data.coordinates[i - 1][y]) : yScale(d[y])}
+                  x2={xScale(d[x])}
+                  y2={yScale(d[y])}
+                  style={{
+                    stroke: "steelblue",
+                    strokeWidth: 1.5,
+                  }}
+                />
+              ))}
             </g>
           </g>
         </svg>
