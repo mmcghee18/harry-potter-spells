@@ -27,11 +27,13 @@ const LineChartV2 = ({ data, x, y, stickTo }) => {
   const xScale = scaleLinear().domain([1, 7]).range([0, dms.boundedWidth]);
   const yScale = scaleLinear().domain([0, 900]).range([dms.boundedHeight, 0]);
 
-  const pathGenerator = line()
-    .x((d) => xScale(d[x]))
-    .y((d) => yScale(d[y]));
+  const items = data.coordinates;
 
-  console.log(pathGenerator(data.coordinates));
+  const transitions = useTransition(items, (item) => item.key, {
+    from: { strokeDashoffset: dms.width, strokeOpacity: 0.8 },
+    enter: { strokeDashoffset: 0, strokeOpacity: 1 },
+    leave: { strokeOpacity: 0 },
+  });
 
   return (
     <>
@@ -54,26 +56,35 @@ const LineChartV2 = ({ data, x, y, stickTo }) => {
             />
             {/* Plot layer */}
             <g>
-              {/* <path
-                style={{
-                  fill: "none",
-                  stroke: "steelblue",
-                  strokeWidth: 1.5,
-                }}
-                d={pathGenerator(data.coordinates)}
-              /> */}
-              {data.coordinates.map((d, i) => (
-                <line
-                  x1={i > 0 ? xScale(data.coordinates[i - 1][x]) : xScale(d[x])}
-                  y1={i > 0 ? yScale(data.coordinates[i - 1][y]) : yScale(d[y])}
-                  x2={xScale(d[x])}
-                  y2={yScale(d[y])}
-                  style={{
-                    stroke: "steelblue",
-                    strokeWidth: 1.5,
-                  }}
-                />
-              ))}
+              {transitions.map(({ item, props }) => {
+                return (
+                  <animated.svg
+                    key={item.key}
+                    strokeDasharray={dms.width}
+                    strokeDashoffset={props.strokeDashoffset}
+                  >
+                    <path
+                      style={{
+                        fill: "none",
+                        stroke: "steelblue",
+                        strokeWidth: 1.5,
+                      }}
+                      d={[
+                        "M",
+                        item.key > 0
+                          ? xScale(data.coordinates[item.key - 1][x])
+                          : xScale(item[x]),
+                        item.key > 0
+                          ? yScale(data.coordinates[item.key - 1][y])
+                          : yScale(item[y]),
+                        "L",
+                        xScale(item[x]),
+                        yScale(item[y]),
+                      ].join(" ")}
+                    />
+                  </animated.svg>
+                );
+              })}
             </g>
           </g>
         </svg>

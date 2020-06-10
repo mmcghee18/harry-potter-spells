@@ -95,13 +95,13 @@ const characterLines = {
 const bookPages = {
   title: "Page Counts",
   coordinates: [
-    { bookNum: 1, pages: 309 },
-    { bookNum: 2, pages: 341 },
-    { bookNum: 3, pages: 435 },
-    { bookNum: 4, pages: 734 },
-    { bookNum: 5, pages: 870 },
-    { bookNum: 6, pages: 652 },
-    { bookNum: 7, pages: 759 },
+    { key: 0, bookNum: 1, pages: 309 },
+    { key: 1, bookNum: 2, pages: 341 },
+    { key: 2, bookNum: 3, pages: 435 },
+    { key: 3, bookNum: 4, pages: 734 },
+    { key: 4, bookNum: 5, pages: 870 },
+    { key: 5, bookNum: 6, pages: 652 },
+    { key: 6, bookNum: 7, pages: 759 },
   ],
 };
 

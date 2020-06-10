@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import styled, { createGlobalStyle } from "styled-components";
 import BarChart from "./BarChart.jsx";
@@ -47,6 +47,12 @@ const ChartWrapper = styled.div`
 
 function App() {
   const [book, setBook] = useState(null);
+
+  // Scroll to the top on render *smoooooothly*
+  useEffect(() => {
+    console.log("hi");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const onStepEnter = ({ data }) => {
     setBook(data);
