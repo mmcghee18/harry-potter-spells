@@ -30,9 +30,9 @@ const LineChartV2 = ({ data, x, y, stickTo }) => {
   const items = data.coordinates;
 
   const transitions = useTransition(items, (item) => item.key, {
-    from: { strokeDashoffset: dms.width, strokeOpacity: 0.8 },
+    from: { strokeDashoffset: dms.width },
     enter: { strokeDashoffset: 0, strokeOpacity: 1 },
-    leave: { strokeOpacity: 0 },
+    leave: { strokeDashoffset: dms.width, strokeOpacity: 0 },
   });
 
   return (

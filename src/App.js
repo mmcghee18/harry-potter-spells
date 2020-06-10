@@ -50,7 +50,6 @@ function App() {
 
   // Scroll to the top on render *smoooooothly*
   useEffect(() => {
-    console.log("hi");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
