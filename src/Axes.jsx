@@ -8,6 +8,8 @@ const Axes = ({
   rangeY,
   numTicksX,
   numTicksY,
+  labelX,
+  labelY,
   dms,
 }) => {
   const scaleX = scaleLinear().domain(domainX).range(rangeX);
@@ -33,6 +35,10 @@ const Axes = ({
   return (
     <g>
       {/* X axis */}
+      <text x={width / 2 - 10} y={rangeY[0] + 35}>
+        {labelX}
+      </text>
+
       <path
         d={[
           "M",
@@ -67,6 +73,16 @@ const Axes = ({
         </g>
       ))}
       {/* { Y axis */}
+      <text
+        x={(-1 * height) / 2}
+        y={rangeX[0] - 35}
+        style={{
+          transform: "rotate(-90deg)",
+        }}
+      >
+        {labelY}
+      </text>
+
       <path
         d={[
           "M",

@@ -18,7 +18,7 @@ const ChartContainer = styled.div`
 const LineChartV2 = ({ data, x, y, stickTo }) => {
   const chartSettings = {
     marginTop: 20,
-    marginBottom: 20,
+    marginBottom: 50,
     marginLeft: 50,
     marginRight: 50,
   };
@@ -54,6 +54,8 @@ const LineChartV2 = ({ data, x, y, stickTo }) => {
               rangeY={[dms.boundedHeight, 0]}
               numTicksX={7}
               numTicksY={10}
+              labelX={"book #"}
+              labelY={"pages"}
               dms={dms}
             />
             {/* Plot layer */}
