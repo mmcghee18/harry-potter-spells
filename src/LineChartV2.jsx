@@ -56,35 +56,46 @@ const LineChartV2 = ({ data, x, y, stickTo }) => {
             />
             {/* Plot layer */}
             <g>
-              {transitions.map(({ item, props }) => {
-                return (
-                  <animated.svg
-                    key={item.key}
-                    strokeDasharray={dms.width}
-                    strokeDashoffset={props.strokeDashoffset}
-                  >
-                    <path
-                      style={{
-                        fill: "none",
-                        stroke: "steelblue",
-                        strokeWidth: 1.5,
-                      }}
-                      d={[
-                        "M",
-                        item.key > 0
-                          ? xScale(data.coordinates[item.key - 1][x])
-                          : xScale(item[x]),
-                        item.key > 0
-                          ? yScale(data.coordinates[item.key - 1][y])
-                          : yScale(item[y]),
-                        "L",
-                        xScale(item[x]),
-                        yScale(item[y]),
-                      ].join(" ")}
-                    />
-                  </animated.svg>
-                );
-              })}
+              {items.length == 1 ? (
+                <circle
+                  cx={xScale(items[0][x])}
+                  cy={yScale(items[0][y])}
+                  r="3"
+                  style={{
+                    fill: "steelblue",
+                  }}
+                />
+              ) : (
+                transitions.map(({ item, props }) => {
+                  return (
+                    <animated.svg
+                      key={item.key}
+                      strokeDasharray={dms.width}
+                      strokeDashoffset={props.strokeDashoffset}
+                    >
+                      <path
+                        style={{
+                          fill: "none",
+                          stroke: "steelblue",
+                          strokeWidth: 1.5,
+                        }}
+                        d={[
+                          "M",
+                          item.key > 0 && item.key < items.length
+                            ? xScale(items[item.key - 1][x])
+                            : xScale(item[x]),
+                          item.key > 0 && item.key < items.length
+                            ? yScale(items[item.key - 1][y])
+                            : yScale(item[y]),
+                          "L",
+                          xScale(item[x]),
+                          yScale(item[y]),
+                        ].join(" ")}
+                      />
+                    </animated.svg>
+                  );
+                })
+              )}
             </g>
           </g>
         </svg>
