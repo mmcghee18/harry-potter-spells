@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import styled, { createGlobalStyle } from "styled-components";
 import BarChart from "./BarChart.jsx";
-import LineChart from "./LineChart.jsx";
+import RadialChart from "./RadialChart.jsx";
 import LineChartV2 from "./LineChartV2.jsx";
 import _ from "lodash";
 
@@ -62,7 +62,7 @@ function App() {
       <GlobalStyle />
       <AppWrapper>
         <ChartWrapper>
-          <BarChart
+          <RadialChart
             data={spells[book]}
             xAxis={"spell"}
             yAxis={"mentions"}
@@ -91,7 +91,6 @@ function App() {
             data={{
               title: bookPages.title,
               coordinates: bookPages.coordinates.slice(0, book),
-              //coordinates: bookPages.coordinates,
             }}
             x={"bookNum"}
             y={"pages"}
