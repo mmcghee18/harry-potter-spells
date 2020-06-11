@@ -6,7 +6,8 @@ import RadialChart from "./RadialChart.jsx";
 import LineChartV2 from "./LineChartV2.jsx";
 import _ from "lodash";
 
-import { spells, characterLines, bookPages } from "./data/data.js";
+import { characterLines, bookPages } from "./data/data.js";
+import spells from "./data/spell_counts.json";
 
 const GlobalStyle = createGlobalStyle`
   body {
