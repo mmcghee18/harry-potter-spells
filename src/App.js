@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 
 const AppWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const ScrollamaWrapper = styled.div`
@@ -38,6 +38,7 @@ const ScrollamaWrapper = styled.div`
 const StepWrapper = styled.div`
   margin: 50vh 0;
   font-size: 50px;
+  // display: none;
 `;
 
 const ChartWrapper = styled.div`
@@ -62,22 +63,6 @@ function App() {
     <>
       <GlobalStyle />
       <AppWrapper>
-        <ChartWrapper>
-          <RadialChart
-            data={spells[book]}
-            xAxis={"spell"}
-            yAxis={"mentions"}
-            title="Spell Use"
-            stickTo="top"
-          />
-          <BarChart
-            data={characterLines[book]}
-            xAxis={"character"}
-            yAxis={"lines"}
-            title="Character Lines"
-            stickTo="bottom"
-          />
-        </ChartWrapper>
         <ScrollamaWrapper>
           <Scrollama onStepEnter={onStepEnter} offset={0.5}>
             {[1, 2, 3, 4, 5, 6, 7].map((book) => (
@@ -87,17 +72,15 @@ function App() {
             ))}
           </Scrollama>
         </ScrollamaWrapper>
-        <ChartWrapper>
-          <LineChartV2
-            data={{
-              title: bookPages.title,
-              coordinates: bookPages.coordinates.slice(0, book),
-            }}
-            x={"bookNum"}
-            y={"pages"}
+        <div>
+          <RadialChart
+            data={spells[book]}
+            xAxis={"spell"}
+            yAxis={"mentions"}
+            title="Spell Use"
             stickTo="top"
           />
-        </ChartWrapper>
+        </div>
       </AppWrapper>
     </>
   );
