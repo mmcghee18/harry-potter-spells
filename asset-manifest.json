@@ -1,19 +1,22 @@
 {
   "files": {
-    "main.js": "/scrollytelling-charts/static/js/main.f05b04e3.chunk.js",
-    "main.js.map": "/scrollytelling-charts/static/js/main.f05b04e3.chunk.js.map",
+    "main.css": "/scrollytelling-charts/static/css/main.882b27fc.chunk.css",
+    "main.js": "/scrollytelling-charts/static/js/main.d224d910.chunk.js",
+    "main.js.map": "/scrollytelling-charts/static/js/main.d224d910.chunk.js.map",
     "runtime-main.js": "/scrollytelling-charts/static/js/runtime-main.dbe24b60.js",
     "runtime-main.js.map": "/scrollytelling-charts/static/js/runtime-main.dbe24b60.js.map",
-    "static/js/2.39936d85.chunk.js": "/scrollytelling-charts/static/js/2.39936d85.chunk.js",
-    "static/js/2.39936d85.chunk.js.map": "/scrollytelling-charts/static/js/2.39936d85.chunk.js.map",
+    "static/js/2.3fc30ab2.chunk.js": "/scrollytelling-charts/static/js/2.3fc30ab2.chunk.js",
+    "static/js/2.3fc30ab2.chunk.js.map": "/scrollytelling-charts/static/js/2.3fc30ab2.chunk.js.map",
     "index.html": "/scrollytelling-charts/index.html",
-    "precache-manifest.1945c5ebb7d70beebf67acdddd4c476c.js": "/scrollytelling-charts/precache-manifest.1945c5ebb7d70beebf67acdddd4c476c.js",
+    "precache-manifest.c6c7e66e45bab6e41f3e08e2c55a0c71.js": "/scrollytelling-charts/precache-manifest.c6c7e66e45bab6e41f3e08e2c55a0c71.js",
     "service-worker.js": "/scrollytelling-charts/service-worker.js",
-    "static/js/2.39936d85.chunk.js.LICENSE.txt": "/scrollytelling-charts/static/js/2.39936d85.chunk.js.LICENSE.txt"
+    "static/css/main.882b27fc.chunk.css.map": "/scrollytelling-charts/static/css/main.882b27fc.chunk.css.map",
+    "static/js/2.3fc30ab2.chunk.js.LICENSE.txt": "/scrollytelling-charts/static/js/2.3fc30ab2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dbe24b60.js",
-    "static/js/2.39936d85.chunk.js",
-    "static/js/main.f05b04e3.chunk.js"
+    "static/js/2.3fc30ab2.chunk.js",
+    "static/css/main.882b27fc.chunk.css",
+    "static/js/main.d224d910.chunk.js"
   ]
 }
