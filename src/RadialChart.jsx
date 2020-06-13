@@ -28,13 +28,12 @@ const RadialChart = ({ data, xAxis, yAxis, title }) => {
     rScaleType: scaleSqrt(),
 
     /* --- Customize --- */
-    //style: { fill: "#ac58e5", stroke: "white" },
     pieceClass: (d) => d["type"].toLowerCase(),
 
     title,
 
     /* --- Annotate --- */
-    oLabel: (d) => <text fontSize={14}>{d}</text>,
+    oLabel: { label: true, orient: "stem", padding: 5 },
   };
 
   return <Chart {...frameProps} />;
