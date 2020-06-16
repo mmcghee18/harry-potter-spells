@@ -28,9 +28,15 @@ const RadialChart = ({ data, xAxis, yAxis, title }) => {
     rScaleType: scaleSqrt(),
 
     /* --- Customize --- */
-    pieceClass: (d) => d["type"].toLowerCase(),
-
-    // title: <text fill={"white"}>{title}</text>,
+    pieceClass: (d) => {
+      let myClass = d.type.toLowerCase();
+      if (d.mentions < 3) {
+        myClass += " insignificant";
+      }
+      return myClass;
+    },
+    baseMarkProps: { transitionDuration: { default: 2000 } },
+    renderKey: (datapoint) => datapoint.spell,
 
     /* --- Annotate --- */
     oLabel: {

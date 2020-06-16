@@ -1,23 +1,27 @@
 .charm {
-  fill: #b9b8d3;
+  fill: #edf067;
 }
 
 .spell {
-  fill: #90c3c8;
+  fill: #4f80b0;
 }
 
 .jinx {
-  fill: #759fbc;
+  fill: #1b3480;
 }
 
 .hex {
-  fill: #725d80;
+  fill: #801d80;
 }
 
 .curse {
-  fill: #1f5673;
+  fill: #442f57;
 }
 
 .unforgivable {
-  fill: #463730;
+  fill: #171617;
+}
+
+.insignificant {
+  opacity: 0.4;
 }
