@@ -11,12 +11,14 @@ import spells from "./data/spell_counts.json";
 
 const GlobalStyle = createGlobalStyle`
   body {
+    background: #302f2c;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: white;
   }
 
   code {

@@ -30,10 +30,18 @@ const RadialChart = ({ data, xAxis, yAxis, title }) => {
     /* --- Customize --- */
     pieceClass: (d) => d["type"].toLowerCase(),
 
-    title,
+    // title: <text fill={"white"}>{title}</text>,
 
     /* --- Annotate --- */
-    oLabel: { label: true, orient: "stem", padding: 5 },
+    oLabel: {
+      orient: "stem",
+      padding: 5,
+      label: (d) => (
+        <text fill="white" fontSize={12}>
+          {d}
+        </text>
+      ),
+    },
   };
 
   return <Chart {...frameProps} />;
