@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import styled, { createGlobalStyle } from "styled-components";
-import BarChart from "./BarChart.jsx";
-import RadialChart from "./RadialChart.jsx";
-import LineChartV2 from "./LineChartV2.jsx";
-import _ from "lodash";
-
-import { characterLines, bookPages } from "./data/data.js";
+import RadialChart from "./data-viz/RadialChart.jsx";
 import spells from "./data/spell_counts.json";
 
 const GlobalStyle = createGlobalStyle`
@@ -40,13 +35,6 @@ const ScrollamaWrapper = styled.div`
 const StepWrapper = styled.div`
   margin: 50vh 0;
   font-size: 50px;
-  // display: none;
-`;
-
-const ChartWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 `;
 
 function App() {
