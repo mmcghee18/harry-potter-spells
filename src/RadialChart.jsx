@@ -26,11 +26,12 @@ const RadialChart = ({ data, xAxis, yAxis, title }) => {
     oAccessor: xAxis,
     rAccessor: yAxis,
     rScaleType: scaleSqrt(),
+    oSort: (a, b, aData, bData) => bData[0][yAxis] - aData[0][yAxis],
 
     /* --- Customize --- */
     pieceClass: (d) => {
       let myClass = d.type.toLowerCase();
-      if (d.mentions < 3) {
+      if (d[yAxis] < 3) {
         myClass += " insignificant";
       }
       return myClass;
