@@ -32,7 +32,7 @@ const BookProgression = styled.div`
 const Multiples = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: center;
 `;
 
 const ScrollamaWrapper = styled.div`
@@ -95,9 +95,9 @@ function App() {
       <Multiples>
         {_.range(1, 8).map((book) => (
           <MultipleWrapper>
-            <Title>{bookTitles[book]}</Title>
+            <Title key={`title-${book}`}>{bookTitles[book]}</Title>
             <RadialChart
-              key={book}
+              key={`chart-${book}`}
               data={spells[book]}
               xAxis={"spell"}
               yAxis={"mentions"}

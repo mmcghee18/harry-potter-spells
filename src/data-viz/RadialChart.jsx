@@ -3,10 +3,11 @@ import OrdinalFrame from "semiotic/lib/OrdinalFrame";
 import styled from "styled-components";
 import { scaleSqrt } from "d3-scale";
 import "./RadialChart.css";
+import _ from "lodash";
 
 const Chart = styled(OrdinalFrame)`
-  position: ${(props) => (props.sticky ? "sticky" : null)};
-  top: ${(props) => (props.sticky ? 0 : null)};
+  position: ${(props) => (props.$sticky ? "sticky" : null)};
+  top: ${(props) => (props.$sticky ? 0 : null)};
 `;
 
 const Tooltip = styled.div`
@@ -48,7 +49,9 @@ const RadialChart = ({ data, xAxis, yAxis, width, height, margin, sticky }) => {
       }
       return myClass;
     },
-    baseMarkProps: { transitionDuration: { default: 2000 } },
+    baseMarkProps: {
+      transitionDuration: { default: 2000 },
+    },
     renderKey: (datapoint) => datapoint.spell,
 
     /* --- Interact --- */
@@ -71,7 +74,7 @@ const RadialChart = ({ data, xAxis, yAxis, width, height, margin, sticky }) => {
     // },
   };
 
-  return <Chart {...frameProps} sticky={sticky} />;
+  return <Chart {...frameProps} $sticky={sticky} />;
 };
 
 export default RadialChart;
