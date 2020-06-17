@@ -83,6 +83,7 @@ function App() {
       <Multiples>
         {[1, 2, 3, 4, 5, 6, 7].map((book) => (
           <RadialChart
+            key={book}
             data={spells[book]}
             xAxis={"spell"}
             yAxis={"mentions"}

@@ -9,6 +9,18 @@ const Chart = styled(OrdinalFrame)`
   top: ${(props) => (props.sticky ? 0 : null)};
 `;
 
+const Tooltip = styled.div`
+  display: flex;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  height: 80px;
+  width: 180px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+`;
+
 const RadialChart = ({ data, xAxis, yAxis, width, height, title, sticky }) => {
   const frameProps = {
     /* --- Data --- */
@@ -40,16 +52,24 @@ const RadialChart = ({ data, xAxis, yAxis, width, height, title, sticky }) => {
     baseMarkProps: { transitionDuration: { default: 2000 } },
     renderKey: (datapoint) => datapoint.spell,
 
+    /* --- Interact --- */
+    hoverAnnotation: true,
+    tooltipContent: (d) => (
+      <Tooltip>
+        {d.summary[0].data[xAxis]} : {d.summary[0].data[yAxis]}
+      </Tooltip>
+    ),
+
     /* --- Annotate --- */
-    oLabel: {
-      orient: "stem",
-      padding: 5,
-      label: (d) => (
-        <text fill="white" fontSize={12}>
-          {d}
-        </text>
-      ),
-    },
+    // oLabel: {
+    //   orient: "stem",
+    //   padding: 5,
+    //   label: (d) => (
+    //     <text fill="white" fontSize={12}>
+    //       {d}
+    //     </text>
+    //   ),
+    // },
   };
 
   return <Chart {...frameProps} sticky={sticky} />;
