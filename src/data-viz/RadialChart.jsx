@@ -5,22 +5,23 @@ import { scaleSqrt } from "d3-scale";
 import "./RadialChart.css";
 
 const Chart = styled(OrdinalFrame)`
-  position: sticky;
-  top: 0;
+  position: ${(props) => (props.sticky ? "sticky" : null)};
+  top: ${(props) => (props.sticky ? 0 : null)};
 `;
 
-const RadialChart = ({ data, xAxis, yAxis, title }) => {
+const RadialChart = ({ data, xAxis, yAxis, width, height, title, sticky }) => {
   const frameProps = {
     /* --- Data --- */
     data,
 
     /* --- Size --- */
-    size: [window.innerHeight - 100, window.innerWidth - 100],
+    size: [width, height],
     margin: 100,
 
     /* --- Layout --- */
     type: "bar",
     projection: "radial",
+    title: <text fill="white">{title}</text>,
 
     /* --- Process --- */
     oAccessor: xAxis,
@@ -51,7 +52,7 @@ const RadialChart = ({ data, xAxis, yAxis, title }) => {
     },
   };
 
-  return <Chart {...frameProps} />;
+  return <Chart {...frameProps} sticky={sticky} />;
 };
 
 export default RadialChart;

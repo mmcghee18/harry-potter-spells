@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import styled, { createGlobalStyle } from "styled-components";
 import RadialChart from "./data-viz/RadialChart.jsx";
-import spells from "./data/spell_counts.json";
+import spells from "./data/spellCounts.json";
+import bookTitles from "./data/bookTitles.js";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -22,9 +23,14 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const AppWrapper = styled.div`
+const BookProgression = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+const Multiples = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const ScrollamaWrapper = styled.div`
@@ -52,7 +58,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <AppWrapper>
+      <BookProgression>
         <ScrollamaWrapper>
           <Scrollama onStepEnter={onStepEnter} offset={0.5}>
             {[1, 2, 3, 4, 5, 6, 7].map((book) => (
@@ -67,11 +73,26 @@ function App() {
             data={spells[book]}
             xAxis={"spell"}
             yAxis={"mentions"}
-            title="Spell Use"
-            stickTo="top"
+            width={window.innerWidth - 100}
+            height={window.innerHeight - 100}
+            sticky={true}
           />
         </div>
-      </AppWrapper>
+      </BookProgression>
+
+      <Multiples>
+        {[1, 2, 3, 4, 5, 6, 7].map((book) => (
+          <RadialChart
+            data={spells[book]}
+            xAxis={"spell"}
+            yAxis={"mentions"}
+            width={500}
+            height={500}
+            title={bookTitles[book]}
+            sticky={false}
+          />
+        ))}
+      </Multiples>
     </>
   );
 }
