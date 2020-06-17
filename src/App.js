@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import RadialChart from "./data-viz/RadialChart.jsx";
 import spells from "./data/spellCounts.json";
 import bookTitles from "./data/bookTitles.js";
+import _ from "lodash";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -31,6 +32,7 @@ const BookProgression = styled.div`
 const Multiples = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 `;
 
 const ScrollamaWrapper = styled.div`
@@ -41,6 +43,16 @@ const ScrollamaWrapper = styled.div`
 const StepWrapper = styled.div`
   margin: 50vh 0;
   font-size: 50px;
+`;
+
+const MultipleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const Title = styled.h3`
+  text-align: center;
 `;
 
 function App() {
@@ -61,7 +73,7 @@ function App() {
       <BookProgression>
         <ScrollamaWrapper>
           <Scrollama onStepEnter={onStepEnter} offset={0.5}>
-            {[1, 2, 3, 4, 5, 6, 7].map((book) => (
+            {_.range(1, 8).map((book) => (
               <Step data={book} key={book}>
                 <StepWrapper>{book}</StepWrapper>
               </Step>
@@ -81,17 +93,20 @@ function App() {
       </BookProgression>
 
       <Multiples>
-        {[1, 2, 3, 4, 5, 6, 7].map((book) => (
-          <RadialChart
-            key={book}
-            data={spells[book]}
-            xAxis={"spell"}
-            yAxis={"mentions"}
-            width={500}
-            height={500}
-            title={bookTitles[book]}
-            sticky={false}
-          />
+        {_.range(1, 8).map((book) => (
+          <MultipleWrapper>
+            <Title>{bookTitles[book]}</Title>
+            <RadialChart
+              key={book}
+              data={spells[book]}
+              xAxis={"spell"}
+              yAxis={"mentions"}
+              width={500}
+              height={500}
+              sticky={false}
+              margin={50}
+            />
+          </MultipleWrapper>
         ))}
       </Multiples>
     </>

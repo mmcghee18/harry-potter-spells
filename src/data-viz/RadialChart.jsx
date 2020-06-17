@@ -21,19 +21,18 @@ const Tooltip = styled.div`
   padding: 5px;
 `;
 
-const RadialChart = ({ data, xAxis, yAxis, width, height, title, sticky }) => {
+const RadialChart = ({ data, xAxis, yAxis, width, height, margin, sticky }) => {
   const frameProps = {
     /* --- Data --- */
     data,
 
     /* --- Size --- */
     size: [width, height],
-    margin: 100,
+    margin: margin ? margin : 100,
 
     /* --- Layout --- */
     type: "bar",
     projection: "radial",
-    title: <text fill="white">{title}</text>,
 
     /* --- Process --- */
     oAccessor: xAxis,
