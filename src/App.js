@@ -40,9 +40,8 @@ function App() {
       <GlobalStyle />
 
       <AppWrapper>
-        <CustomRadialChart />
-        {/* <BookProgression />
-        <SmallMultiples /> */}
+        <BookProgression />
+        {/* <SmallMultiples /> */}
       </AppWrapper>
     </>
   );

@@ -13,6 +13,12 @@ const Pieces = styled.g`
   transform: translate(${canvasWidth / 2}px, ${canvasHeight / 2}px);
 `;
 
+const SVGCanvas = styled.svg`
+  margin: ${margin}px;
+  position: sticky;
+  top: ${margin}px;
+`;
+
 const mostMentions = (data) => {
   return _.get(
     _.maxBy(data, (d) => d.mentions),
@@ -36,24 +42,13 @@ const Piece = ({ data, i, scale, numBars }) => {
   );
 };
 
-const CustomRadialChart = () => {
-  const data = [
-    { spell: "Alohomora", mentions: 2, type: "Charm" },
-    { spell: "(Anti-Cheating Spell)", mentions: 1, type: "Spell" },
-    { spell: "Bluebell Flames", mentions: 1, type: "Spell" },
-    { spell: "Locomotor Mortis", mentions: 1, type: "Curse" },
-    { spell: "Mimblewimble", mentions: 1, type: "Curse" },
-    { spell: "Petrificus Totalus", mentions: 1, type: "Curse" },
-    { spell: "Switching Spell", mentions: 1, type: "Spell" },
-    { spell: "Wingardium Leviosa", mentions: 3, type: "Charm" },
-  ];
-
+const CustomRadialChart = ({ data }) => {
   const scale = scaleLinear()
     .domain([0, mostMentions(data)])
     .range([0, canvasWidth / 2]);
 
   return (
-    <svg height={canvasHeight} width={canvasWidth} style={{ margin }}>
+    <SVGCanvas height={canvasHeight} width={canvasWidth}>
       <Pieces>
         {_.map(data, (d, i) => (
           <Piece
@@ -65,7 +60,7 @@ const CustomRadialChart = () => {
           />
         ))}
       </Pieces>
-    </svg>
+    </SVGCanvas>
   );
 };
 
