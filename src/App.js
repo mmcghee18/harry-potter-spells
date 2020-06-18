@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Scrollama, Step } from "react-scrollama";
+import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import RadialChart from "./data-viz/RadialChart.jsx";
-import spells from "./data/spellCounts.json";
-import bookTitles from "./data/bookTitles.js";
 import _ from "lodash";
 import BookProgression from "./article-sections/BookProgression.jsx";
 import SmallMultiples from "./article-sections/SmallMultiples.jsx";
+import CustomRadialChart from "./data-viz/CustomRadialChart.jsx";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -43,8 +40,9 @@ function App() {
       <GlobalStyle />
 
       <AppWrapper>
-        <BookProgression />
-        <SmallMultiples />
+        <CustomRadialChart />
+        {/* <BookProgression />
+        <SmallMultiples /> */}
       </AppWrapper>
     </>
   );
