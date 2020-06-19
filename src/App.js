@@ -3,7 +3,6 @@ import styled, { createGlobalStyle } from "styled-components";
 import _ from "lodash";
 import BookProgression from "./article-sections/BookProgression.jsx";
 import SmallMultiples from "./article-sections/SmallMultiples.jsx";
-import CustomRadialChart from "./data-viz/CustomRadialChart.jsx";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -41,7 +40,7 @@ function App() {
 
       <AppWrapper>
         <BookProgression />
-        <SmallMultiples />
+        {/* <SmallMultiples /> */}
       </AppWrapper>
     </>
   );

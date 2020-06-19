@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import styled, { createGlobalStyle } from "styled-components";
-import RadialChart from "../data-viz/RadialChart.jsx";
-import CustomRadialChart from "../data-viz/CustomRadialChart.jsx";
+import RadialChart from "../data-viz/semiotic-bar-charts/RadialChart.jsx";
+import CustomRadialChart from "../data-viz/radial-chart/CustomRadialChart.jsx";
 import spells from "../data/spellCounts.json";
-import bookTitles from "../data/bookTitles.js";
 import _ from "lodash";
 
 const Wrapper = styled.div`
@@ -42,15 +41,21 @@ const BookProgression = () => {
         </Scrollama>
       </ScrollamaWrapper>
       <div>
-        <RadialChart
+        {/* <RadialChart
           data={spells[book]}
           xAxis={"spell"}
           yAxis={"mentions"}
           width={window.innerWidth - 100}
           height={window.innerHeight - 100}
           sticky={true}
-        />
-        {/* {!_.isEmpty(spells[book]) && <CustomRadialChart data={spells[book]} />} */}
+        /> */}
+        {!_.isEmpty(spells[book]) && (
+          <CustomRadialChart
+            fullData={spells}
+            currentData={spells[book]}
+            currentBook={book}
+          />
+        )}
       </div>
     </Wrapper>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { line } from "d3-shape";
 import { useSpring, useTransition, animated } from "react-spring";
 import { scaleLinear } from "d3-scale";
-import useChartDimensions from "./hooks/useChartDimensions.js";
+import useChartDimensions from "../../hooks/useChartDimensions.js";
 import styled from "styled-components";
 import Axes from "./Axes";
 import _ from "lodash";
