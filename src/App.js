@@ -41,7 +41,7 @@ function App() {
 
       <AppWrapper>
         <BookProgression />
-        {/* <SmallMultiples /> */}
+        <SmallMultiples />
       </AppWrapper>
     </>
   );

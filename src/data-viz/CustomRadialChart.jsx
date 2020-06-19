@@ -4,6 +4,7 @@ import { arc } from "d3-shape";
 import { scaleLinear } from "d3-scale";
 import _ from "lodash";
 import "./CustomRadialChart.css";
+import { useTransition, animated } from "react-spring";
 
 const canvasWidth = 600;
 const canvasHeight = 600;
@@ -81,7 +82,6 @@ const CustomRadialChart = ({ data }) => {
   const [hoveredPiece, setHoveredPiece] = useState(null);
   const [mouseX, setMouseX] = useState(null);
   const [mouseY, setMouseY] = useState(null);
-  console.log(mouseX, mouseY);
 
   const scale = scaleLinear()
     .domain([0, mostMentions(data)])

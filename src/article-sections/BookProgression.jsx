@@ -42,15 +42,15 @@ const BookProgression = () => {
         </Scrollama>
       </ScrollamaWrapper>
       <div>
-        {/* <RadialChart
+        <RadialChart
           data={spells[book]}
           xAxis={"spell"}
           yAxis={"mentions"}
           width={window.innerWidth - 100}
           height={window.innerHeight - 100}
           sticky={true}
-        /> */}
-        <CustomRadialChart data={spells[book]} />
+        />
+        {/* {!_.isEmpty(spells[book]) && <CustomRadialChart data={spells[book]} />} */}
       </div>
     </Wrapper>
   );
