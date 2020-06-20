@@ -3,21 +3,20 @@ import { arc } from "d3-shape";
 import { animated, useSpring } from "react-spring";
 import { getPath } from "./utils.js";
 
-const Piece = ({
+const MovingPiece = ({
   data,
   setHoveredPiece,
   setMouseX,
   setMouseY,
   isShowing,
+  previousPath,
   book,
 }) => {
   const currentPath = getPath(book, data.spell);
 
   const animations = useSpring({
-    config: {
-      duration: 1200,
-    },
-    opacity: isShowing ? 1 : 0,
+    d: currentPath,
+    from: { d: previousPath },
   });
 
   return (
@@ -39,9 +38,9 @@ const Piece = ({
         }
       }}
     >
-      <animated.path {...animations} d={currentPath} />
+      <animated.path {...animations} />
     </g>
   );
 };
 
-export default Piece;
+export default MovingPiece;

@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { scaleLinear } from "d3-scale";
 import _ from "lodash";
 import "./CustomRadialChart.css";
 import Piece from "./Piece.jsx";
+import MovingPiece from "./MovingPiece.jsx";
 import { useTransition, animated, useSpring } from "react-spring";
-import { canvasWidth, canvasHeight, margin, mostMentions } from "./utils.js";
+import {
+  canvasWidth,
+  canvasHeight,
+  margin,
+  mostMentions,
+  getPath,
+} from "./utils.js";
 
 const Pieces = styled.g`
   transform: translate(${canvasWidth / 2}px, ${canvasHeight / 2}px);
@@ -34,18 +40,21 @@ const SVGCanvas = styled.svg`
 
 const AnnotationLayer = styled.div``;
 
-const CustomRadialChart = ({ fullData, currentData, currentBook }) => {
+const CustomRadialChart = ({
+  fullData,
+  currentData,
+  currentBook,
+  previousData,
+  previousBook,
+}) => {
   const [hoveredPiece, setHoveredPiece] = useState(null);
   const [mouseX, setMouseX] = useState(null);
   const [mouseY, setMouseY] = useState(null);
 
-  const [visibleSpells, setVisibleSpells] = useState(
-    _.map(currentData, (d) => d.spell)
-  );
+  const visibleSpells = _.map(currentData, (d) => d.spell);
+  const previousSpells = _.map(previousData, (d) => d.spell);
 
-  useEffect(() => {
-    setVisibleSpells(_.map(currentData, (d) => d.spell));
-  }, [currentData]);
+  const barsToMove = _.intersection(visibleSpells, previousSpells);
 
   return (
     <>
@@ -53,27 +62,44 @@ const CustomRadialChart = ({ fullData, currentData, currentBook }) => {
         {/* Create pieces for all 7 charts, on top of each other */}
         {_.range(1, 8).map((book) => {
           const data = fullData[book];
-          const scale = scaleLinear()
-            .domain([0, mostMentions(data)])
-            .range([0, canvasWidth / 2]);
 
           return (
             <Pieces key={book}>
-              {_.map(data, (d, i) => (
-                <Piece
-                  key={d.spell}
-                  data={d}
-                  i={i}
-                  scale={scale}
-                  numBars={data.length}
-                  setHoveredPiece={setHoveredPiece}
-                  setMouseX={setMouseX}
-                  setMouseY={setMouseY}
-                  isShowing={
-                    visibleSpells.includes(d.spell) && currentBook == book
-                  }
-                />
-              ))}
+              {_.map(data, (d) => {
+                if (barsToMove.includes(d.spell)) {
+                  return (
+                    <MovingPiece
+                      key={d.spell}
+                      data={d}
+                      setHoveredPiece={setHoveredPiece}
+                      setMouseX={setMouseX}
+                      setMouseY={setMouseY}
+                      isShowing={
+                        visibleSpells.includes(d.spell) && currentBook == book
+                      }
+                      previousPath={
+                        barsToMove.includes(d.spell)
+                          ? getPath(previousBook, d.spell)
+                          : null
+                      }
+                      book={currentBook}
+                    />
+                  );
+                }
+                return (
+                  <Piece
+                    key={d.spell}
+                    data={d}
+                    setHoveredPiece={setHoveredPiece}
+                    setMouseX={setMouseX}
+                    setMouseY={setMouseY}
+                    isShowing={
+                      visibleSpells.includes(d.spell) && currentBook == book
+                    }
+                    book={currentBook}
+                  />
+                );
+              })}
             </Pieces>
           );
         })}

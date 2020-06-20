@@ -24,9 +24,12 @@ const StepWrapper = styled.div`
 
 const BookProgression = () => {
   const [book, setBook] = useState(null);
+  const [previousBook, setPreviousBook] = useState(null);
 
-  const onStepEnter = ({ data }) => {
+  const onStepEnter = ({ data, direction }) => {
     setBook(data);
+    if (direction == "up") setPreviousBook(data + 1);
+    else if (direction == "down") setPreviousBook(data - 1);
   };
 
   return (
@@ -54,6 +57,8 @@ const BookProgression = () => {
             fullData={spells}
             currentData={spells[book]}
             currentBook={book}
+            previousData={spells[previousBook]}
+            previousBook={previousBook}
           />
         )}
       </div>
