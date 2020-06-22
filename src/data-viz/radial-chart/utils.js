@@ -1,7 +1,7 @@
 import _ from "lodash";
 import spells from "../../data/spellCounts.json";
 import { arc } from "d3-shape";
-import { scaleLinear } from "d3-scale";
+import { scaleSqrt } from "d3-scale";
 
 export const canvasWidth = 800;
 export const canvasHeight = 800;
@@ -20,7 +20,7 @@ export const getPath = (book, spell) => {
   const i = _.findIndex(data, { spell });
 
   if (i === -1) return null;
-  const scale = scaleLinear()
+  const scale = scaleSqrt()
     .domain([0, mostMentions(data)])
     .range([0, canvasWidth / 2]);
 
