@@ -15,11 +15,11 @@ export const mostMentions = (data) => {
 };
 
 export const getPath = (book, spell) => {
-  const data = spells[book];
+  const data = _.orderBy(spells[book], ["mentions"], ["desc"]);
   const numBars = data.length;
   const i = _.findIndex(data, { spell });
 
-  if (i == -1) return null;
+  if (i === -1) return null;
   const scale = scaleLinear()
     .domain([0, mostMentions(data)])
     .range([0, canvasWidth / 2]);
@@ -31,6 +31,22 @@ export const getPath = (book, spell) => {
     .endAngle(((Math.PI * 2) / numBars) * (i + 1))
     .innerRadius(0)
     .outerRadius(scale(pieceData.mentions));
+
+  return arcGenerator();
+};
+
+export const getNullPath = (book, spell) => {
+  const data = _.orderBy(spells[book], ["mentions"], ["desc"]);
+  const numBars = data.length;
+  const i = _.findIndex(data, { spell });
+
+  if (i === -1) return null;
+
+  const arcGenerator = arc()
+    .startAngle(((Math.PI * 2) / numBars) * i)
+    .endAngle(((Math.PI * 2) / numBars) * (i + 1))
+    .innerRadius(0)
+    .outerRadius(5);
 
   return arcGenerator();
 };

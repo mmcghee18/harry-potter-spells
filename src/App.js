@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import _ from "lodash";
 import BookProgression from "./article-sections/BookProgression.jsx";
 import SmallMultiples from "./article-sections/SmallMultiples.jsx";
 

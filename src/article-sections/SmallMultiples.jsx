@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Scrollama, Step } from "react-scrollama";
-import styled, { createGlobalStyle } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import RadialChart from "../data-viz/semiotic-bar-charts/RadialChart.jsx";
 import spells from "../data/spellCounts.json";
 import bookTitles from "../data/bookTitles.js";

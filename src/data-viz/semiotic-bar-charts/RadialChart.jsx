@@ -3,7 +3,6 @@ import OrdinalFrame from "semiotic/lib/OrdinalFrame";
 import styled from "styled-components";
 import { scaleSqrt } from "d3-scale";
 import "./RadialChart.css";
-import _ from "lodash";
 
 const Chart = styled(OrdinalFrame)`
   position: ${(props) => (props.$sticky ? "sticky" : null)};

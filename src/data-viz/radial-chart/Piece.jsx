@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from "react";
-import { arc } from "d3-shape";
+import React, { useState, useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 import { getPath } from "./utils.js";
 
@@ -11,19 +10,29 @@ const Piece = ({
   isShowing,
   book,
 }) => {
+  const [toggle, setToggle] = useState(isShowing);
   const currentPath = getPath(book, data.spell);
+
+  useEffect(() => {
+    setToggle(isShowing);
+  }, [isShowing]);
 
   const animations = useSpring({
     config: {
-      duration: 1200,
+      duration: 3000,
     },
-    opacity: isShowing ? 1 : 0,
+    opacity: toggle ? 1 : 0,
   });
+
+  // const pieceClass = `${
+  //   data.mentions < 3 ? "insignificant " : ""
+  // }${data.type.toLowerCase()}`;
+
+  const pieceClass = data.type.toLowerCase();
 
   return (
     <g
-      opacity={isShowing ? 1 : 0}
-      className={data.type.toLowerCase()}
+      className={pieceClass}
       onMouseEnter={(e) => {
         if (isShowing) {
           setHoveredPiece(data);

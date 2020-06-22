@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import _ from "lodash";
 import "./CustomRadialChart.css";
-import Piece from "./Piece.jsx";
 import MovingPiece from "./MovingPiece.jsx";
-import { useTransition, animated, useSpring } from "react-spring";
 import {
   canvasWidth,
   canvasHeight,
   margin,
-  mostMentions,
   getPath,
+  getNullPath,
 } from "./utils.js";
 
 const Pieces = styled.g`
@@ -38,79 +36,41 @@ const SVGCanvas = styled.svg`
   top: ${margin}px;
 `;
 
-const AnnotationLayer = styled.div``;
-
-const CustomRadialChart = ({
-  fullData,
-  currentData,
-  currentBook,
-  previousData,
-  previousBook,
-}) => {
-  const [hoveredPiece, setHoveredPiece] = useState(null);
-  const [mouseX, setMouseX] = useState(null);
-  const [mouseY, setMouseY] = useState(null);
-
-  const visibleSpells = _.map(currentData, (d) => d.spell);
-  const previousSpells = _.map(previousData, (d) => d.spell);
-
-  const barsToMove = _.intersection(visibleSpells, previousSpells);
+const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
+  const visibleSpells = _.map(fullData[currentBook], (d) => d.spell);
+  const previousSpells = _.map(fullData[previousBook], (d) => d.spell);
 
   return (
     <>
       <SVGCanvas height={canvasHeight} width={canvasWidth}>
-        {/* Create pieces for all 7 charts, on top of each other */}
-        {_.range(1, 8).map((book) => {
-          const data = fullData[book];
+        <Pieces>
+          {_.map(fullData[currentBook], (d) => {
+            const appearing =
+              visibleSpells.includes(d.spell) &&
+              !previousSpells.includes(d.spell);
+            const disappearing =
+              previousSpells.includes(d.spell) &&
+              !visibleSpells.includes(d.spell);
 
-          return (
-            <Pieces key={book}>
-              {_.map(data, (d) => {
-                if (barsToMove.includes(d.spell)) {
-                  return (
-                    <MovingPiece
-                      key={d.spell}
-                      data={d}
-                      setHoveredPiece={setHoveredPiece}
-                      setMouseX={setMouseX}
-                      setMouseY={setMouseY}
-                      isShowing={
-                        visibleSpells.includes(d.spell) && currentBook == book
-                      }
-                      previousPath={
-                        barsToMove.includes(d.spell)
-                          ? getPath(previousBook, d.spell)
-                          : null
-                      }
-                      book={currentBook}
-                    />
-                  );
+            return (
+              <MovingPiece
+                key={`${d.spell}${d.book}`}
+                data={d}
+                pathA={
+                  appearing
+                    ? getNullPath(currentBook, d.spell)
+                    : getPath(previousBook, d.spell)
                 }
-                return (
-                  <Piece
-                    key={d.spell}
-                    data={d}
-                    setHoveredPiece={setHoveredPiece}
-                    setMouseX={setMouseX}
-                    setMouseY={setMouseY}
-                    isShowing={
-                      visibleSpells.includes(d.spell) && currentBook == book
-                    }
-                    book={currentBook}
-                  />
-                );
-              })}
-            </Pieces>
-          );
-        })}
+                pathB={
+                  disappearing
+                    ? getNullPath(previousBook, d.spell)
+                    : getPath(currentBook, d.spell)
+                }
+              />
+            );
+          })}
+        </Pieces>
       </SVGCanvas>
-      <AnnotationLayer>
-        {hoveredPiece && (
-          <Tooltip key={hoveredPiece.spell} $x={mouseX} $y={mouseY}>
-            {hoveredPiece.spell} : {hoveredPiece.mentions}
-          </Tooltip>
-        )}
-      </AnnotationLayer>
     </>
   );
 };

@@ -1,43 +1,16 @@
-import React, { useEffect, useRef } from "react";
-import { arc } from "d3-shape";
+import React from "react";
 import { animated, useSpring } from "react-spring";
-import { getPath } from "./utils.js";
 
-const MovingPiece = ({
-  data,
-  setHoveredPiece,
-  setMouseX,
-  setMouseY,
-  isShowing,
-  previousPath,
-  book,
-}) => {
-  const currentPath = getPath(book, data.spell);
-
+const MovingPiece = ({ data, pathA, pathB }) => {
   const animations = useSpring({
-    d: currentPath,
-    from: { d: previousPath },
+    config: { duration: 1500 },
+    d: pathB,
+    opacity: 1,
+    from: { d: pathA, opacity: 0 },
   });
 
   return (
-    <g
-      opacity={isShowing ? 1 : 0}
-      className={data.type.toLowerCase()}
-      onMouseEnter={(e) => {
-        if (isShowing) {
-          setHoveredPiece(data);
-          setMouseX(e.nativeEvent.pageX);
-          setMouseY(e.nativeEvent.pageY);
-        }
-      }}
-      onMouseLeave={() => {
-        if (isShowing) {
-          setHoveredPiece(null);
-          setMouseX(null);
-          setMouseY(null);
-        }
-      }}
-    >
+    <g className={data.type.toLowerCase()}>
       <animated.path {...animations} />
     </g>
   );

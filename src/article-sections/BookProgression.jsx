@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Scrollama, Step } from "react-scrollama";
-import styled, { createGlobalStyle } from "styled-components";
-import RadialChart from "../data-viz/semiotic-bar-charts/RadialChart.jsx";
+import styled from "styled-components";
 import CustomRadialChart from "../data-viz/radial-chart/CustomRadialChart.jsx";
 import spells from "../data/spellCounts.json";
 import _ from "lodash";
@@ -20,6 +19,9 @@ const ScrollamaWrapper = styled.div`
 const StepWrapper = styled.div`
   margin: 50vh 0;
   font-size: 50px;
+  height: 200px;
+  display: flex;
+  align-items: center;
 `;
 
 const BookProgression = () => {
@@ -27,15 +29,15 @@ const BookProgression = () => {
   const [previousBook, setPreviousBook] = useState(null);
 
   const onStepEnter = ({ data, direction }) => {
+    if (direction === "up") setPreviousBook(data + 1);
+    else if (direction === "down") setPreviousBook(data - 1);
     setBook(data);
-    if (direction == "up") setPreviousBook(data + 1);
-    else if (direction == "down") setPreviousBook(data - 1);
   };
 
   return (
     <Wrapper>
       <ScrollamaWrapper>
-        <Scrollama onStepEnter={onStepEnter} offset={0.5}>
+        <Scrollama onStepEnter={onStepEnter} offset={0.5} debug>
           {_.range(1, 8).map((book) => (
             <Step data={book} key={book}>
               <StepWrapper>{book}</StepWrapper>
@@ -44,23 +46,13 @@ const BookProgression = () => {
         </Scrollama>
       </ScrollamaWrapper>
       <div>
-        {/* <RadialChart
-          data={spells[book]}
-          xAxis={"spell"}
-          yAxis={"mentions"}
-          width={window.innerWidth - 100}
-          height={window.innerHeight - 100}
-          sticky={true}
-        /> */}
-        {!_.isEmpty(spells[book]) && (
+        {!_.isEmpty(spells[book]) ? (
           <CustomRadialChart
             fullData={spells}
-            currentData={spells[book]}
             currentBook={book}
-            previousData={spells[previousBook]}
             previousBook={previousBook}
           />
-        )}
+        ) : null}
       </div>
     </Wrapper>
   );
