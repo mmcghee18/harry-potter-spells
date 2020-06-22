@@ -25,8 +25,8 @@ const StepWrapper = styled.div`
 `;
 
 const BookProgression = () => {
-  const [book, setBook] = useState(null);
-  const [previousBook, setPreviousBook] = useState(null);
+  const [book, setBook] = useState(1);
+  const [previousBook, setPreviousBook] = useState(0);
 
   const onStepEnter = ({ data, direction }) => {
     if (direction === "up") setPreviousBook(data + 1);
@@ -34,10 +34,10 @@ const BookProgression = () => {
     setBook(data);
   };
 
-  return (
+  return !_.isEmpty(spells[book]) ? (
     <Wrapper>
       <ScrollamaWrapper>
-        <Scrollama onStepEnter={onStepEnter} offset={0.5} debug>
+        <Scrollama onStepEnter={onStepEnter} offset={0.5} offset={0.7}>
           {_.range(1, 8).map((book) => (
             <Step data={book} key={book}>
               <StepWrapper>{book}</StepWrapper>
@@ -46,15 +46,15 @@ const BookProgression = () => {
         </Scrollama>
       </ScrollamaWrapper>
       <div>
-        {!_.isEmpty(spells[book]) ? (
-          <CustomRadialChart
-            fullData={spells}
-            currentBook={book}
-            previousBook={previousBook}
-          />
-        ) : null}
+        <CustomRadialChart
+          fullData={spells}
+          currentBook={book}
+          previousBook={previousBook}
+        />
       </div>
     </Wrapper>
+  ) : (
+    <div>Loading...</div>
   );
 };
 
