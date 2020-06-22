@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/scrollytelling-charts/static/css/main.5a182651.chunk.css",
-    "main.js": "/scrollytelling-charts/static/js/main.ed575393.chunk.js",
-    "main.js.map": "/scrollytelling-charts/static/js/main.ed575393.chunk.js.map",
-    "runtime-main.js": "/scrollytelling-charts/static/js/runtime-main.dbe24b60.js",
-    "runtime-main.js.map": "/scrollytelling-charts/static/js/runtime-main.dbe24b60.js.map",
-    "static/js/2.1fa08882.chunk.js": "/scrollytelling-charts/static/js/2.1fa08882.chunk.js",
-    "static/js/2.1fa08882.chunk.js.map": "/scrollytelling-charts/static/js/2.1fa08882.chunk.js.map",
+    "main.css": "/scrollytelling-charts/static/css/main.1d2aaac9.chunk.css",
+    "main.js": "/scrollytelling-charts/static/js/main.a921125a.chunk.js",
+    "main.js.map": "/scrollytelling-charts/static/js/main.a921125a.chunk.js.map",
+    "runtime-main.js": "/scrollytelling-charts/static/js/runtime-main.9855ebac.js",
+    "runtime-main.js.map": "/scrollytelling-charts/static/js/runtime-main.9855ebac.js.map",
+    "static/js/2.e4d0077f.chunk.js": "/scrollytelling-charts/static/js/2.e4d0077f.chunk.js",
+    "static/js/2.e4d0077f.chunk.js.map": "/scrollytelling-charts/static/js/2.e4d0077f.chunk.js.map",
     "index.html": "/scrollytelling-charts/index.html",
-    "precache-manifest.ce812f00e5238bd53894dbc5feeb1049.js": "/scrollytelling-charts/precache-manifest.ce812f00e5238bd53894dbc5feeb1049.js",
+    "precache-manifest.6c546021e3beed37943fbab185196107.js": "/scrollytelling-charts/precache-manifest.6c546021e3beed37943fbab185196107.js",
     "service-worker.js": "/scrollytelling-charts/service-worker.js",
-    "static/css/main.5a182651.chunk.css.map": "/scrollytelling-charts/static/css/main.5a182651.chunk.css.map",
-    "static/js/2.1fa08882.chunk.js.LICENSE.txt": "/scrollytelling-charts/static/js/2.1fa08882.chunk.js.LICENSE.txt"
+    "static/css/main.1d2aaac9.chunk.css.map": "/scrollytelling-charts/static/css/main.1d2aaac9.chunk.css.map",
+    "static/js/2.e4d0077f.chunk.js.LICENSE.txt": "/scrollytelling-charts/static/js/2.e4d0077f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.dbe24b60.js",
-    "static/js/2.1fa08882.chunk.js",
-    "static/css/main.5a182651.chunk.css",
-    "static/js/main.ed575393.chunk.js"
+    "static/js/runtime-main.9855ebac.js",
+    "static/js/2.e4d0077f.chunk.js",
+    "static/css/main.1d2aaac9.chunk.css",
+    "static/js/main.a921125a.chunk.js"
   ]
 }
