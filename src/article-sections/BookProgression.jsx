@@ -24,6 +24,10 @@ const StepWrapper = styled.div`
   align-items: center;
 `;
 
+const Loading = styled.div`
+  margin-top: 40px;
+`;
+
 const BookProgression = () => {
   const [book, setBook] = useState(1);
   const [previousBook, setPreviousBook] = useState(0);
@@ -54,7 +58,7 @@ const BookProgression = () => {
       </div>
     </Wrapper>
   ) : (
-    <div>Loading...</div>
+    <Loading>Loading...</Loading>
   );
 };
 
