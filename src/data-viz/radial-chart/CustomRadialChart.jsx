@@ -15,21 +15,6 @@ const Pieces = styled.g`
   transform: translate(${canvasWidth / 2}px, ${canvasHeight / 2}px);
 `;
 
-const Tooltip = styled.div`
-  position: absolute;
-  top: ${(props) => props.$y}px;
-  left: ${(props) => props.$x}px;
-  display: flex;
-  background-color: white;
-  color: black;
-  border-radius: 10px;
-  height: 80px;
-  width: 180px;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-`;
-
 const SVGCanvas = styled.svg`
   //margin: ${margin}px;
   position: sticky;
