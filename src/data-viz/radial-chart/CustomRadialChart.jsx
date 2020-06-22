@@ -31,7 +31,7 @@ const Tooltip = styled.div`
 `;
 
 const SVGCanvas = styled.svg`
-  margin: ${margin}px;
+  //margin: ${margin}px;
   position: sticky;
   top: ${margin}px;
 `;
@@ -45,27 +45,20 @@ const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
       <SVGCanvas height={canvasHeight} width={canvasWidth}>
         <Pieces>
           {_.map(fullData[currentBook], (d) => {
-            const appearing =
+            const entering =
               visibleSpells.includes(d.spell) &&
               !previousSpells.includes(d.spell);
-            const disappearing =
-              previousSpells.includes(d.spell) &&
-              !visibleSpells.includes(d.spell);
 
             return (
               <MovingPiece
                 key={`${d.spell}${d.book}`}
                 data={d}
                 pathA={
-                  appearing
+                  entering
                     ? getNullPath(currentBook, d.spell)
                     : getPath(previousBook, d.spell)
                 }
-                pathB={
-                  disappearing
-                    ? getNullPath(previousBook, d.spell)
-                    : getPath(currentBook, d.spell)
-                }
+                pathB={getPath(currentBook, d.spell)}
               />
             );
           })}

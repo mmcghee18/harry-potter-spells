@@ -3,8 +3,8 @@ import spells from "../../data/spellCounts.json";
 import { arc } from "d3-shape";
 import { scaleLinear } from "d3-scale";
 
-export const canvasWidth = 600;
-export const canvasHeight = 600;
+export const canvasWidth = 800;
+export const canvasHeight = 800;
 export const margin = 100;
 
 export const mostMentions = (data) => {
