@@ -41,7 +41,7 @@ const BookProgression = () => {
   return !_.isEmpty(spells[book]) ? (
     <Wrapper>
       <ScrollamaWrapper>
-        <Scrollama onStepEnter={onStepEnter} offset={0.5} offset={0.7}>
+        <Scrollama onStepEnter={onStepEnter} offset={0.7}>
           {_.range(1, 8).map((book) => (
             <Step data={book} key={book}>
               <StepWrapper>{book}</StepWrapper>

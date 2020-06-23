@@ -10,7 +10,6 @@ export const margin = 100;
 export const labelHeight = 80;
 export const labelWidth = 180;
 export const labelRx = 10;
-export const labelMargin = 20;
 export const textSize = 14;
 
 export const mostMentions = (data) => {

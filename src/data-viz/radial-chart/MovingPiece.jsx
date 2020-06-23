@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { animated, useSpring } from "react-spring";
 import _ from "lodash";
-import {
-  labelHeight,
-  labelWidth,
-  labelRx,
-  labelMargin,
-  textSize,
-} from "./utils.js";
+import { labelHeight, labelWidth, labelRx, textSize } from "./utils.js";
 
 const MovingPiece = ({ data, pathA, pathB }) => {
   const [mouseLocation, setMouseLocation] = useState(null);
@@ -38,45 +32,43 @@ const MovingPiece = ({ data, pathA, pathB }) => {
 
   return (
     <>
-      <g>
-        <g
-          className={pieceClass}
-          onMouseEnter={(e) => {
-            setMouseLocation({
-              x: e.nativeEvent.clientX,
-              y: e.nativeEvent.clientY,
-            });
-            setShowLabel(true);
-          }}
-          onMouseLeave={() => {
-            setShowLabel(false);
-            setMouseLocation(null);
-          }}
-        >
-          <animated.path {...animations} />
-        </g>
-
-        {showLabel ? (
-          <g>
-            <rect
-              fill="white"
-              x={labelX}
-              y={labelY}
-              height={labelHeight}
-              width={labelWidth}
-              rx={labelRx}
-            ></rect>
-            <text
-              x={textX}
-              y={textY}
-              style={{ font: `${textSize}px` }}
-              textAnchor={"middle"}
-            >
-              {data.spell} : {data.mentions}
-            </text>
-          </g>
-        ) : null}
+      <g
+        className={pieceClass}
+        onMouseEnter={(e) => {
+          setMouseLocation({
+            x: e.nativeEvent.clientX,
+            y: e.nativeEvent.clientY,
+          });
+          setShowLabel(true);
+        }}
+        onMouseLeave={() => {
+          setShowLabel(false);
+          setMouseLocation(null);
+        }}
+      >
+        <animated.path {...animations} />
       </g>
+
+      {showLabel ? (
+        <g>
+          <rect
+            fill="white"
+            x={labelX}
+            y={labelY}
+            height={labelHeight}
+            width={labelWidth}
+            rx={labelRx}
+          ></rect>
+          <text
+            x={textX}
+            y={textY}
+            style={{ font: `${textSize}px` }}
+            textAnchor={"middle"}
+          >
+            {data.spell} : {data.mentions}
+          </text>
+        </g>
+      ) : null}
     </>
   );
 };

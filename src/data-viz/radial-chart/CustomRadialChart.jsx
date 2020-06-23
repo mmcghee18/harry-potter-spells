@@ -16,7 +16,6 @@ const Pieces = styled.g`
 `;
 
 const SVGCanvas = styled.svg`
-  //margin: ${margin}px;
   position: sticky;
   top: ${margin}px;
 `;

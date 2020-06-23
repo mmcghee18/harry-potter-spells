@@ -16,7 +16,8 @@
     "react-scrollama": "^2.2.10",
     "react-spring": "^8.0.27",
     "semiotic": "1.20.5",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "styled-icons": "^10.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

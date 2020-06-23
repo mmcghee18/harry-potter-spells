@@ -26,7 +26,7 @@ const SmallMultiples = () => {
   return (
     <Wrapper>
       {_.range(1, 8).map((book) => (
-        <MultipleWrapper>
+        <MultipleWrapper key={book}>
           <Title key={`title-${book}`}>{bookTitles[book]}</Title>
           <RadialChart
             key={`chart-${book}`}

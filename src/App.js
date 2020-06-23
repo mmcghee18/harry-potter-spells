@@ -2,14 +2,19 @@ import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import BookProgression from "./article-sections/BookProgression.jsx";
 import SmallMultiples from "./article-sections/SmallMultiples.jsx";
+import Header from "./article-sections/Header.jsx";
+import GlobalFonts from "./fonts/fonts";
 
 const GlobalStyle = createGlobalStyle`
+  h1 {
+    font-family: "Harry Potter Title";
+    font-size: 4em;
+  }
+
   body {
     background: #302f2c;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    font-family: 'National 2 Web', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: white;
@@ -36,10 +41,12 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <GlobalFonts />
 
       <AppWrapper>
+        <Header />
         <BookProgression />
-        {/* <SmallMultiples /> */}
+        <SmallMultiples />
       </AppWrapper>
     </>
   );
