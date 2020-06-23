@@ -12,7 +12,6 @@ const ChartWrapper = styled.div`
   position: sticky;
   top: 10%;
   margin-right: 20px;
-  background-color: lightgrey;
 `;
 
 const Pieces = styled.g`
@@ -24,9 +23,8 @@ const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
   const visibleSpells = _.map(fullData[currentBook], (d) => d.spell);
   const previousSpells = _.map(fullData[previousBook], (d) => d.spell);
 
-  const chartSettings = { marginBottom: 200 };
+  const chartSettings = { marginBottom: 200, marginTop: 20 };
   const [ref, dms] = useChartDimensions(chartSettings);
-  console.log(dms);
 
   return (
     <ChartWrapper ref={ref}>
