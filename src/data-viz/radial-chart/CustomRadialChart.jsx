@@ -4,13 +4,7 @@ import _ from "lodash";
 import "./CustomRadialChart.css";
 import MovingPiece from "./MovingPiece.jsx";
 import Legend from "./Legend.jsx";
-import {
-  canvasWidth,
-  canvasHeight,
-  margin,
-  getPath,
-  getNullPath,
-} from "./utils.js";
+import { getPath, getNullPath } from "./utils.js";
 import useChartDimensions from "../../hooks/useChartDimensions.js";
 
 const ChartWrapper = styled.div`
@@ -22,7 +16,8 @@ const ChartWrapper = styled.div`
 `;
 
 const Pieces = styled.g`
-  transform: translate(${canvasWidth / 2}px, ${canvasHeight / 2}px);
+  transform: ${(props) =>
+    `translate(${props.canvasWidth / 2}px, ${props.canvasHeight / 2}px)`};
 `;
 
 const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
@@ -39,31 +34,34 @@ const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
         <g
           transform={`translate(${[dms.marginLeft, dms.marginTop].join(",")})`}
         >
-          <rect
-            width={dms.boundedWidth}
-            height={dms.boundedHeight}
-            fill="lavender"
-          />
-          {/* <Pieces>
-          {_.map(fullData[currentBook], (d) => {
-            const entering =
-              visibleSpells.includes(d.spell) &&
-              !previousSpells.includes(d.spell);
+          <Pieces canvasWidth={dms.width} canvasHeight={dms.height}>
+            {_.map(fullData[currentBook], (d) => {
+              const entering =
+                visibleSpells.includes(d.spell) &&
+                !previousSpells.includes(d.spell);
 
-            return (
-              <MovingPiece
-                key={`${d.spell}${d.book}`}
-                data={d}
-                pathA={
-                  entering
-                    ? getNullPath(currentBook, d.spell)
-                    : getPath(previousBook, d.spell)
-                }
-                pathB={getPath(currentBook, d.spell)}
-              />
-            );
-          })}
-        </Pieces> */}
+              return dms.height !== 0 && dms.width !== 0 ? (
+                <MovingPiece
+                  key={`${d.spell}${d.book}`}
+                  data={d}
+                  pathA={
+                    entering
+                      ? getNullPath(currentBook, d.spell)
+                      : getPath(
+                          previousBook,
+                          d.spell,
+                          _.min([dms.width, dms.height])
+                        )
+                  }
+                  pathB={getPath(
+                    currentBook,
+                    d.spell,
+                    _.min([dms.width, dms.height])
+                  )}
+                />
+              ) : null;
+            })}
+          </Pieces>
         </g>
       </svg>
     </ChartWrapper>
