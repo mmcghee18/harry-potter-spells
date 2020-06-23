@@ -44,9 +44,9 @@ function App() {
       <GlobalFonts />
 
       <AppWrapper>
-        <Header />
+        {/* <Header /> */}
         <BookProgression />
-        <SmallMultiples />
+        {/* <SmallMultiples /> */}
       </AppWrapper>
     </>
   );

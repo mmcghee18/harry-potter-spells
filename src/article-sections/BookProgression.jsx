@@ -9,11 +9,18 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 100%;
 `;
 
 const ScrollamaWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 10%;
+`;
+
+const ChartWrapper = styled.div`
+  width: 90%;
 `;
 
 const StepWrapper = styled.div`
@@ -49,13 +56,13 @@ const BookProgression = () => {
           ))}
         </Scrollama>
       </ScrollamaWrapper>
-      <div>
+      <ChartWrapper>
         <CustomRadialChart
           fullData={spells}
           currentBook={book}
           previousBook={previousBook}
         />
-      </div>
+      </ChartWrapper>
     </Wrapper>
   ) : (
     <Loading>Loading...</Loading>

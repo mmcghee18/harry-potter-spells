@@ -26,7 +26,7 @@ const Header = () => {
     setCurrentStep(data);
   };
 
-  set({ opacity: currentStep === 2 ? 0 : 1 });
+  set({ opacity: currentStep === 3 ? 0 : 1 });
 
   return (
     <Wrapper>
@@ -41,6 +41,9 @@ const Header = () => {
           </h2>
         </Step>
         <Step data={2} key={2}>
+          <h3>By Michelle McGhee</h3>
+        </Step>
+        <Step data={3} key={3}>
           <animated.div
             style={{
               display: "flex",

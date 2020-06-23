@@ -4,10 +4,10 @@ import { useRef, useState, useEffect } from "react";
 const combineChartDimensions = (dimensions) => {
   const parsedDimensions = {
     ...dimensions,
-    marginTop: dimensions.marginTop || 10,
-    marginRight: dimensions.marginRight || 10,
-    marginBottom: dimensions.marginBottom || 40,
-    marginLeft: dimensions.marginLeft || 75,
+    marginTop: dimensions.marginTop || 0,
+    marginRight: dimensions.marginRight || 0,
+    marginBottom: dimensions.marginBottom || 0,
+    marginLeft: dimensions.marginLeft || 0,
   };
   return {
     ...parsedDimensions,
