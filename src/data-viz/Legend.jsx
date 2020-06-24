@@ -52,22 +52,29 @@ const LegendRow = ({ dms, i, spellType, spellTypes, percentage }) => {
       ? margin + legendR
       : (margin + 2 * legendR) * i + (margin + legendR);
 
-  // const props = useSpring({
-  //   config: { duration: 5000 },
-  //   number: percentage,
-  //   from: { number: 0 },
-  // });
+  const props = useSpring({
+    //config: { duration: 5000 },
+    number: percentage,
+  });
 
   return (
     <>
       <animated.text
-        key={`${spellType}-percent`}
+        key={`${spellType}-percentage`}
         x={circleX - (legendR + 50)}
         y={circleY}
         fill="white"
       >
-        {percentage}%
+        {props.number.interpolate((val) => Math.floor(val))}
       </animated.text>
+      <text
+        key={`${spellType}-percent`}
+        x={circleX - (legendR + 30)}
+        y={circleY}
+        fill="white"
+      >
+        %
+      </text>
       <circle
         key={`${spellType}-circle`}
         className={spellType}

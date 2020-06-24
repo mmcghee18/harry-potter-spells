@@ -16,7 +16,7 @@ const ChartWrapper = styled.div`
 
 const Pieces = styled.g`
   transform: ${(props) =>
-    `translate(${props.canvasWidth / 2}px, ${props.canvasHeight / 2}px)`};
+    `translate(${props.boundedWidth / 2}px, ${props.boundedHeight / 2}px)`};
 `;
 
 const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
@@ -32,7 +32,10 @@ const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
         <g
           transform={`translate(${[dms.marginLeft, dms.marginTop].join(",")})`}
         >
-          <Pieces canvasWidth={dms.width} canvasHeight={dms.height}>
+          <Pieces
+            boundedWidth={dms.boundedWidth}
+            boundedHeight={dms.boundedHeight}
+          >
             {_.map(fullData[currentBook], (d) => {
               const entering =
                 visibleSpells.includes(d.spell) &&
