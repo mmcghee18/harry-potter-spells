@@ -27,10 +27,15 @@ const StepWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 200px;
 `;
 
 const Loading = styled.div`
   margin-top: 40px;
+`;
+
+const BookTitle = styled.h3`
+  font-size: 1.6em;
 `;
 
 const BookProgression = () => {
@@ -58,8 +63,8 @@ const BookProgression = () => {
           {_.range(1, 8).map((book) => (
             <Step data={book} key={book}>
               <StepWrapper>
-                <div>Book {book}</div>
-                <div>some thoughts about the book</div>
+                <BookTitle>Book {book}</BookTitle>
+                <div>{bookThoughts[book]}</div>
               </StepWrapper>
             </Step>
           ))}
@@ -72,3 +77,23 @@ const BookProgression = () => {
 };
 
 export default BookProgression;
+
+const bookThoughts = {
+  1: (
+    <>
+      <p>Turns out there's not actually that much magic in Book 1.</p>
+      <p>
+        The most uttered spell is <strong>Wingardium Leviosa</strong>, which
+        Harry, Ron, and Hermione learn in Charms class and later use to defeat a
+        troll.
+      </p>
+      <p>Click on a spell to see where it's mentioned!</p>
+    </>
+  ),
+  2: <p>thoughts about book 2</p>,
+  3: <p>thoughts about book 3</p>,
+  4: <p>thoughts about book 4</p>,
+  5: <p>thoughts about book 5</p>,
+  6: <p>thoughts about book 6</p>,
+  7: <p>thoughts about book 7</p>,
+};

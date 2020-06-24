@@ -7,7 +7,7 @@ import { labelHeight, labelWidth, labelRx, textSize } from "./utils.js";
 const MovingPiece = ({ data, pathA, pathB }) => {
   const [mouseLocation, setMouseLocation] = useState(null);
   const [showLabel, setShowLabel] = useState(false);
-
+  console.log({ showLabel });
   const insignificant = data.mentions < 3;
 
   const animations = useSpring({
