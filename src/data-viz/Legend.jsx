@@ -1,9 +1,14 @@
 import React from "react";
 import _ from "lodash";
+import { animated, useSpring } from "react-spring";
 import LegendRow from "./LegendRow.jsx";
 
 const Legend = ({ dms, data }) => {
   const totalMentions = _.sumBy(data, "mentions");
+  const numberAnimation = useSpring({
+    total: totalMentions,
+  });
+
   let mentionsByType = {};
 
   const spellTypes = ["charm", "spell", "jinx", "hex", "curse", "unforgivable"];
@@ -30,6 +35,12 @@ const Legend = ({ dms, data }) => {
         dms.height + dms.marginTop - dms.marginBottom,
       ].join(",")})`}
     >
+      <text x={dms.width * 0.5 - 60} y={-20} fill="white">
+        Total spell mentions =
+      </text>
+      <animated.text x={dms.width * 0.5 + 107} y={-20} fill="white">
+        {numberAnimation.total.interpolate((val) => Math.floor(val))}
+      </animated.text>
       {rankedSpellTypes.map((spellType, i) => (
         <LegendRow
           key={spellType}
