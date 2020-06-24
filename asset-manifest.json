@@ -1,22 +1,26 @@
 {
   "files": {
-    "main.css": "/scrollytelling-charts/static/css/main.1d2aaac9.chunk.css",
-    "main.js": "/scrollytelling-charts/static/js/main.90b75c4c.chunk.js",
-    "main.js.map": "/scrollytelling-charts/static/js/main.90b75c4c.chunk.js.map",
-    "runtime-main.js": "/scrollytelling-charts/static/js/runtime-main.9855ebac.js",
-    "runtime-main.js.map": "/scrollytelling-charts/static/js/runtime-main.9855ebac.js.map",
-    "static/js/2.420eaf9c.chunk.js": "/scrollytelling-charts/static/js/2.420eaf9c.chunk.js",
-    "static/js/2.420eaf9c.chunk.js.map": "/scrollytelling-charts/static/js/2.420eaf9c.chunk.js.map",
+    "main.css": "/scrollytelling-charts/static/css/main.7947ae20.chunk.css",
+    "main.js": "/scrollytelling-charts/static/js/main.5286e7d3.chunk.js",
+    "main.js.map": "/scrollytelling-charts/static/js/main.5286e7d3.chunk.js.map",
+    "runtime-main.js": "/scrollytelling-charts/static/js/runtime-main.dbe24b60.js",
+    "runtime-main.js.map": "/scrollytelling-charts/static/js/runtime-main.dbe24b60.js.map",
+    "static/js/2.15d681b1.chunk.js": "/scrollytelling-charts/static/js/2.15d681b1.chunk.js",
+    "static/js/2.15d681b1.chunk.js.map": "/scrollytelling-charts/static/js/2.15d681b1.chunk.js.map",
     "index.html": "/scrollytelling-charts/index.html",
-    "precache-manifest.992d3bc98554df0c216f7a4aadaac335.js": "/scrollytelling-charts/precache-manifest.992d3bc98554df0c216f7a4aadaac335.js",
+    "precache-manifest.d78a5fe9b23a175e4138ad64cbc1b9a9.js": "/scrollytelling-charts/precache-manifest.d78a5fe9b23a175e4138ad64cbc1b9a9.js",
     "service-worker.js": "/scrollytelling-charts/service-worker.js",
-    "static/css/main.1d2aaac9.chunk.css.map": "/scrollytelling-charts/static/css/main.1d2aaac9.chunk.css.map",
-    "static/js/2.420eaf9c.chunk.js.LICENSE.txt": "/scrollytelling-charts/static/js/2.420eaf9c.chunk.js.LICENSE.txt"
+    "static/css/main.7947ae20.chunk.css.map": "/scrollytelling-charts/static/css/main.7947ae20.chunk.css.map",
+    "static/js/2.15d681b1.chunk.js.LICENSE.txt": "/scrollytelling-charts/static/js/2.15d681b1.chunk.js.LICENSE.txt",
+    "static/media/HarryP-Title.ttf": "/scrollytelling-charts/static/media/HarryP-Title.181ef9a7.ttf",
+    "static/media/National2Web-Regular.woff2": "/scrollytelling-charts/static/media/National2Web-Regular.2414fbff.woff2",
+    "static/media/National2Web-Regular.woff": "/scrollytelling-charts/static/media/National2Web-Regular.dc4310e6.woff",
+    "static/media/PublicoText-Roman-Web.woff2": "/scrollytelling-charts/static/media/PublicoText-Roman-Web.5f2e0ae8.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.9855ebac.js",
-    "static/js/2.420eaf9c.chunk.js",
-    "static/css/main.1d2aaac9.chunk.css",
-    "static/js/main.90b75c4c.chunk.js"
+    "static/js/runtime-main.dbe24b60.js",
+    "static/js/2.15d681b1.chunk.js",
+    "static/css/main.7947ae20.chunk.css",
+    "static/js/main.5286e7d3.chunk.js"
   ]
 }
