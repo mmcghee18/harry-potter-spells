@@ -1,5 +1,5 @@
 import _ from "lodash";
-import spells from "../../data/spellCounts.json";
+import spells from "../data/spellCounts.json";
 import { arc } from "d3-shape";
 import { scaleSqrt } from "d3-scale";
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import styled from "styled-components";
-import CustomRadialChart from "../data-viz/radial-chart/CustomRadialChart.jsx";
+import CustomRadialChart from "../data-viz/CustomRadialChart.jsx";
 import spells from "../data/spellCounts.json";
 import _ from "lodash";
 

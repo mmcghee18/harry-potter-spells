@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import RadialChart from "../data-viz/semiotic-bar-charts/RadialChart.jsx";
+import CustomRadialChart from "../data-viz/CustomRadialChart.jsx";
 import spells from "../data/spellCounts.json";
 import bookTitles from "../data/bookTitles.js";
 import _ from "lodash";
@@ -28,7 +28,7 @@ const SmallMultiples = () => {
       {_.range(1, 8).map((book) => (
         <MultipleWrapper key={book}>
           <Title key={`title-${book}`}>{bookTitles[book]}</Title>
-          <RadialChart
+          <CustomRadialChart
             key={`chart-${book}`}
             data={spells[book]}
             xAxis={"spell"}

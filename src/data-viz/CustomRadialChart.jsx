@@ -5,7 +5,7 @@ import "./CustomRadialChart.css";
 import MovingPiece from "./MovingPiece.jsx";
 import Legend from "./Legend.jsx";
 import { getPath, getNullPath } from "./utils.js";
-import useChartDimensions from "../../hooks/useChartDimensions.js";
+import useChartDimensions from "../hooks/useChartDimensions.js";
 
 const ChartWrapper = styled.div`
   height: 85vh;
