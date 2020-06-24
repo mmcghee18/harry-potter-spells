@@ -23,7 +23,7 @@ const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
   const visibleSpells = _.map(fullData[currentBook], (d) => d.spell);
   const previousSpells = _.map(fullData[previousBook], (d) => d.spell);
 
-  const chartSettings = { marginBottom: 200, marginTop: 20 };
+  const chartSettings = { marginBottom: 200 }; // can this be like 20%?
   const [ref, dms] = useChartDimensions(chartSettings);
 
   return (
@@ -48,19 +48,21 @@ const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
                       : getPath(
                           previousBook,
                           d.spell,
-                          _.min([dms.width, dms.height])
+                          _.min([dms.boundedWidth, dms.boundedHeight])
                         )
                   }
                   pathB={getPath(
                     currentBook,
                     d.spell,
-                    _.min([dms.width, dms.height])
+                    _.min([dms.boundedWidth, dms.boundedHeight])
                   )}
                 />
               ) : null;
             })}
           </Pieces>
         </g>
+
+        <Legend dms={dms} data={fullData[currentBook]} />
       </svg>
     </ChartWrapper>
   );

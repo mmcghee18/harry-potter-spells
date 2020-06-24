@@ -11,6 +11,7 @@ export const labelHeight = 80;
 export const labelWidth = 180;
 export const labelRx = 10;
 export const textSize = 14;
+export const legendR = 10;
 
 export const mostMentions = (data) => {
   return _.get(
