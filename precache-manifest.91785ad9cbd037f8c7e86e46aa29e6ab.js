@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e58d075384536a94e050417235f50fc3",
+    "revision": "cefb1ed35804815cb62eea05cdfb45ab",
     "url": "/scrollytelling-charts/index.html"
   },
   {
-    "revision": "00bfaa1f9cc43536436c",
+    "revision": "396b493924873f7c92b3",
     "url": "/scrollytelling-charts/static/css/main.7947ae20.chunk.css"
   },
   {
-    "revision": "f4d3832b556c075b5c70",
-    "url": "/scrollytelling-charts/static/js/2.15d681b1.chunk.js"
+    "revision": "15dfb55c565a74ba0580",
+    "url": "/scrollytelling-charts/static/js/2.0339f49f.chunk.js"
   },
   {
     "revision": "64bea2e190f27355a76963b8cb94bb7b",
-    "url": "/scrollytelling-charts/static/js/2.15d681b1.chunk.js.LICENSE.txt"
+    "url": "/scrollytelling-charts/static/js/2.0339f49f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "00bfaa1f9cc43536436c",
-    "url": "/scrollytelling-charts/static/js/main.5286e7d3.chunk.js"
+    "revision": "396b493924873f7c92b3",
+    "url": "/scrollytelling-charts/static/js/main.31f0ff2e.chunk.js"
   },
   {
     "revision": "0fb6a9b6751f2fe62bbc",
