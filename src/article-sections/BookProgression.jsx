@@ -5,29 +5,27 @@ import CustomRadialChart from "../data-viz/CustomRadialChart.jsx";
 import spells from "../data/spellCounts.json";
 import _ from "lodash";
 
-const Wrapper = styled.div`
+const ChartWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  position: sticky;
+  top: 10%;
 `;
 
 const ScrollamaWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 10%;
-`;
-
-const ChartWrapper = styled.div`
-  width: 90%;
+  align-self: flex-start;
+  margin-left: 50px;
 `;
 
 const StepWrapper = styled.div`
   margin: 50vh 0;
-  font-size: 50px;
-  height: 200px;
   display: flex;
+  flex-direction: column;
   align-items: center;
 `;
 
@@ -46,16 +44,7 @@ const BookProgression = () => {
   };
 
   return !_.isEmpty(spells[book]) ? (
-    <Wrapper>
-      <ScrollamaWrapper>
-        <Scrollama onStepEnter={onStepEnter} offset={0.7}>
-          {_.range(1, 8).map((book) => (
-            <Step data={book} key={book}>
-              <StepWrapper>{book}</StepWrapper>
-            </Step>
-          ))}
-        </Scrollama>
-      </ScrollamaWrapper>
+    <>
       <ChartWrapper>
         <CustomRadialChart
           fullData={spells}
@@ -63,7 +52,20 @@ const BookProgression = () => {
           previousBook={previousBook}
         />
       </ChartWrapper>
-    </Wrapper>
+
+      <ScrollamaWrapper>
+        <Scrollama onStepEnter={onStepEnter} offset={0.7}>
+          {_.range(1, 8).map((book) => (
+            <Step data={book} key={book}>
+              <StepWrapper>
+                <div>Book {book}</div>
+                <div>some thoughts about the book</div>
+              </StepWrapper>
+            </Step>
+          ))}
+        </Scrollama>
+      </ScrollamaWrapper>
+    </>
   ) : (
     <Loading>Loading...</Loading>
   );

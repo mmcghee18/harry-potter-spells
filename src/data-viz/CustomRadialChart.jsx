@@ -9,9 +9,8 @@ import useChartDimensions from "../hooks/useChartDimensions.js";
 
 const ChartWrapper = styled.div`
   height: 85vh;
-  position: sticky;
-  top: 10%;
   margin-right: 20px;
+  width: 90%;
 `;
 
 const Pieces = styled.g`
