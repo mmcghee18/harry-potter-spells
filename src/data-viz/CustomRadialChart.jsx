@@ -4,6 +4,7 @@ import _ from "lodash";
 import "./CustomRadialChart.css";
 import MovingPiece from "./MovingPiece.jsx";
 import Legend from "./Legend.jsx";
+import Tooltip from "./Tooltip.jsx";
 import { getPath, getNullPath } from "./utils.js";
 import useChartDimensions from "../hooks/useChartDimensions.js";
 
@@ -19,10 +20,12 @@ const Pieces = styled.g`
 `;
 
 const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
+  const [hoveredPiece, setHoveredPiece] = useState(null);
+
   const visibleSpells = _.map(fullData[currentBook], (d) => d.spell);
   const previousSpells = _.map(fullData[previousBook], (d) => d.spell);
 
-  const chartSettings = { marginBottom: 200 }; // can this be like 20%?
+  const chartSettings = { marginBottom: 200 };
   const [ref, dms] = useChartDimensions(chartSettings);
 
   return (
@@ -58,14 +61,15 @@ const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
                     d.spell,
                     _.min([dms.boundedWidth, dms.boundedHeight])
                   )}
+                  setHoveredPiece={setHoveredPiece}
                 />
               ) : null;
             })}
           </Pieces>
         </g>
-
         <Legend dms={dms} data={fullData[currentBook]} />
       </svg>
+      <Tooltip data={fullData[currentBook]} hoveredPiece={hoveredPiece} />
     </ChartWrapper>
   );
 };

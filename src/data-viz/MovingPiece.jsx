@@ -4,10 +4,9 @@ import { animated, useSpring } from "react-spring";
 import _ from "lodash";
 import { labelHeight, labelWidth, labelRx, textSize } from "./utils.js";
 
-const MovingPiece = ({ data, pathA, pathB }) => {
-  const [mouseLocation, setMouseLocation] = useState(null);
-  const [showLabel, setShowLabel] = useState(false);
-  console.log({ showLabel });
+const MovingPiece = ({ data, pathA, pathB, setHoveredPiece }) => {
+  //const [mouseLocation, setMouseLocation] = useState(null);
+  //const [showLabel, setShowLabel] = useState(false);
   const insignificant = data.mentions < 3;
 
   const animations = useSpring({
@@ -21,35 +20,41 @@ const MovingPiece = ({ data, pathA, pathB }) => {
     insignificant ? "insignificant " : ""
   }${data.type.toLowerCase()}`;
 
-  const labelX = _.isNull(mouseLocation)
-    ? 0
-    : -window.innerWidth / 2 + mouseLocation.x;
-  const labelY = _.isNull(mouseLocation)
-    ? 0
-    : -window.innerHeight / 2 + mouseLocation.y;
-  const textX = labelX + labelWidth / 2;
-  const textY = labelY + labelHeight / 2 + textSize / 2;
+  // const labelX = _.isNull(mouseLocation)
+  //   ? 0
+  //   : -window.innerWidth / 2 + mouseLocation.x;
+  // const labelY = _.isNull(mouseLocation)
+  //   ? 0
+  //   : -window.innerHeight / 2 + mouseLocation.y;
+  // const textX = labelX + labelWidth / 2;
+  // const textY = labelY + labelHeight / 2 + textSize / 2;
 
   return (
     <>
       <g
         className={pieceClass}
-        onMouseEnter={(e) => {
-          setMouseLocation({
-            x: e.nativeEvent.clientX,
-            y: e.nativeEvent.clientY,
-          });
-          setShowLabel(true);
+        // onMouseEnter={(e) => {
+        //   setMouseLocation({
+        //     x: e.nativeEvent.clientX,
+        //     y: e.nativeEvent.clientY,
+        //   });
+        //   setShowLabel(true);
+        // }}
+        // onMouseLeave={() => {
+        //   setShowLabel(false);
+        //   setMouseLocation(null);
+        // }}
+        onMouseEnter={() => {
+          setHoveredPiece(data.spell);
         }}
         onMouseLeave={() => {
-          setShowLabel(false);
-          setMouseLocation(null);
+          setHoveredPiece(null);
         }}
       >
         <animated.path {...animations} />
       </g>
 
-      {showLabel ? (
+      {/* {showLabel ? (
         <g>
           <rect
             fill="white"
@@ -68,7 +73,7 @@ const MovingPiece = ({ data, pathA, pathB }) => {
             {data.spell} : {data.mentions}
           </text>
         </g>
-      ) : null}
+      ) : null} */}
     </>
   );
 };
