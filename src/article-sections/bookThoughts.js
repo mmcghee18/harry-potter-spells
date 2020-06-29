@@ -1,6 +1,22 @@
 import React from "react";
 
-const bookThoughts = {
+export const highlightedSections = {
+  1: ["Wingardium Leviosa"],
+  2: ["Expelliarmus"],
+  3: ["Expecto Patronum", "Riddikulus"],
+  4: ["Avada Kedavra", "Crucio", "Imperio"],
+  5: [
+    "Expelliarmus",
+    "Stupefy",
+    "Impedimenta",
+    "Petrificus Totalus",
+    "Reducto",
+  ],
+  6: ["Sectumsempra", "Levicorpus"],
+  7: ["Avada Kedavra"],
+};
+
+export const writtenThoughts = {
   1: (
     <>
       <p>Turns out there's not actually that much magic in Book 1.</p>
@@ -81,5 +97,3 @@ const bookThoughts = {
     </>
   ),
 };
-
-export default bookThoughts;

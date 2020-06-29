@@ -23,6 +23,7 @@ const CustomRadialChart = ({
   mentions,
   currentBook,
   previousBook,
+  highlightedSections,
 }) => {
   const [hoveredPiece, setHoveredPiece] = useState(null);
   const [mouseLocation, setMouseLocation] = useState(null);
@@ -69,6 +70,11 @@ const CustomRadialChart = ({
                   setHoveredPiece={setHoveredPiece}
                   setMouseLocation={setMouseLocation}
                   mentions={mentions[currentBook][d.spell]}
+                  highlighted={
+                    highlightedSections
+                      ? highlightedSections.includes(d.spell)
+                      : false
+                  }
                 />
               ) : null;
             })}

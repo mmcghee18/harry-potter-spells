@@ -33,6 +33,7 @@ const MovingPiece = ({
   setHoveredPiece,
   setMouseLocation,
   mentions,
+  highlighted,
 }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -78,7 +79,10 @@ const MovingPiece = ({
         placement="bottom"
       >
         <g className={pieceClass}>
-          <animated.path {...animations} />
+          <animated.path
+            {...animations}
+            stroke={highlighted ? "white" : null}
+          />
         </g>
       </Popover>
     </>

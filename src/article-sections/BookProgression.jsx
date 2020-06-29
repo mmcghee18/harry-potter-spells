@@ -5,7 +5,7 @@ import CustomRadialChart from "../data-viz/CustomRadialChart.jsx";
 import spells from "../data/spellCounts.json";
 import spellMentions from "../data/spellMentions.json";
 import _ from "lodash";
-import bookThoughts from "./bookThoughts.js";
+import { writtenThoughts, highlightedSections } from "./bookThoughts.js";
 import { useSpring } from "react-spring";
 
 const ChartWrapper = styled.div`
@@ -59,6 +59,7 @@ const BookProgression = () => {
           mentions={spellMentions}
           currentBook={book}
           previousBook={previousBook}
+          highlightedSections={_.get(highlightedSections, book)}
         />
       </ChartWrapper>
 
@@ -68,7 +69,7 @@ const BookProgression = () => {
             <Step data={book} key={book}>
               <StepWrapper>
                 <BookTitle>Book {book}</BookTitle>
-                <div>{bookThoughts[book]}</div>
+                <div>{writtenThoughts[book]}</div>
               </StepWrapper>
             </Step>
           ))}
