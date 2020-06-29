@@ -21,6 +21,7 @@ const Pieces = styled.g`
 
 const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
   const [hoveredPiece, setHoveredPiece] = useState(null);
+  const [mouseLocation, setMouseLocation] = useState(null);
 
   const visibleSpells = _.map(fullData[currentBook], (d) => d.spell);
   const previousSpells = _.map(fullData[previousBook], (d) => d.spell);
@@ -62,6 +63,7 @@ const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
                     _.min([dms.boundedWidth, dms.boundedHeight])
                   )}
                   setHoveredPiece={setHoveredPiece}
+                  setMouseLocation={setMouseLocation}
                 />
               ) : null;
             })}
@@ -69,7 +71,11 @@ const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
         </g>
         <Legend dms={dms} data={fullData[currentBook]} />
       </svg>
-      <Tooltip data={fullData[currentBook]} hoveredPiece={hoveredPiece} />
+      {/* <Tooltip
+        data={fullData[currentBook]}
+        hoveredPiece={hoveredPiece}
+        mouseLocation={mouseLocation}
+      /> */}
     </ChartWrapper>
   );
 };

@@ -2,11 +2,39 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { animated, useSpring } from "react-spring";
 import _ from "lodash";
-import { labelHeight, labelWidth, labelRx, textSize } from "./utils.js";
+import { Popover } from "antd";
 
-const MovingPiece = ({ data, pathA, pathB, setHoveredPiece }) => {
-  //const [mouseLocation, setMouseLocation] = useState(null);
-  //const [showLabel, setShowLabel] = useState(false);
+const Title = styled.p`
+  color: #302f2c;
+  font-color: white;
+`;
+
+const Effect = styled.p`
+  color: #302f2c;
+`;
+
+const SeeMentions = styled.p`
+  font-size: 12px;
+  color: #1890ff;
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const Mentions = styled.p`
+  display: ${(props) => (props.expanded ? "block" : "none")};
+`;
+
+const MovingPiece = ({
+  data,
+  pathA,
+  pathB,
+  setHoveredPiece,
+  setMouseLocation,
+}) => {
+  const [expanded, setExpanded] = useState(false);
+
   const insignificant = data.mentions < 3;
 
   const animations = useSpring({
@@ -20,60 +48,39 @@ const MovingPiece = ({ data, pathA, pathB, setHoveredPiece }) => {
     insignificant ? "insignificant " : ""
   }${data.type.toLowerCase()}`;
 
-  // const labelX = _.isNull(mouseLocation)
-  //   ? 0
-  //   : -window.innerWidth / 2 + mouseLocation.x;
-  // const labelY = _.isNull(mouseLocation)
-  //   ? 0
-  //   : -window.innerHeight / 2 + mouseLocation.y;
-  // const textX = labelX + labelWidth / 2;
-  // const textY = labelY + labelHeight / 2 + textSize / 2;
+  const tooltipTitle = (
+    <Title>
+      {data.spell} : {data.mentions}
+    </Title>
+  );
+
+  const tooltipContent = (
+    <div>
+      <Effect>{data.effect}</Effect>
+      <SeeMentions onClick={() => setExpanded(!expanded)}>
+        {expanded ? "Hide mentions" : "See mentions"}
+      </SeeMentions>
+      <Mentions expanded={expanded}>
+        Here is a ton of info about where it is mentioned did you see this and
+        this and this Here is a ton of info about where it is mentioned did you
+        see this and this and this Here is a ton of info about where it is
+        mentioned did you see this and this and this
+      </Mentions>
+    </div>
+  );
 
   return (
     <>
-      <g
-        className={pieceClass}
-        // onMouseEnter={(e) => {
-        //   setMouseLocation({
-        //     x: e.nativeEvent.clientX,
-        //     y: e.nativeEvent.clientY,
-        //   });
-        //   setShowLabel(true);
-        // }}
-        // onMouseLeave={() => {
-        //   setShowLabel(false);
-        //   setMouseLocation(null);
-        // }}
-        onMouseEnter={() => {
-          setHoveredPiece(data.spell);
-        }}
-        onMouseLeave={() => {
-          setHoveredPiece(null);
-        }}
+      <Popover
+        arrowPointAtCenter={true}
+        title={tooltipTitle}
+        content={tooltipContent}
+        placement="bottom"
       >
-        <animated.path {...animations} />
-      </g>
-
-      {/* {showLabel ? (
-        <g>
-          <rect
-            fill="white"
-            x={labelX}
-            y={labelY}
-            height={labelHeight}
-            width={labelWidth}
-            rx={labelRx}
-          ></rect>
-          <text
-            x={textX}
-            y={textY}
-            style={{ font: `${textSize}px` }}
-            textAnchor={"middle"}
-          >
-            {data.spell} : {data.mentions}
-          </text>
+        <g className={pieceClass}>
+          <animated.path {...animations} />
         </g>
-      ) : null} */}
+      </Popover>
     </>
   );
 };

@@ -4,11 +4,21 @@ import BookProgression from "./article-sections/BookProgression.jsx";
 import SmallMultiples from "./article-sections/SmallMultiples.jsx";
 import Header from "./article-sections/Header.jsx";
 import GlobalFonts from "./fonts/fonts";
+import "./App.css";
 
 const GlobalStyle = createGlobalStyle`
   h1 {
     font-family: "Harry Potter Title";
     font-size: 4em;
+    color: white;
+  }
+
+  h2 {
+    color: white;
+  }
+
+  h3 {
+    color: white;
   }
 
   body {
