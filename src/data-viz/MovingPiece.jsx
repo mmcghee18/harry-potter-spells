@@ -22,7 +22,7 @@ const SeeMentions = styled.p`
   }
 `;
 
-const Mentions = styled.p`
+const Mentions = styled.div`
   display: ${(props) => (props.expanded ? "block" : "none")};
 `;
 
@@ -32,6 +32,7 @@ const MovingPiece = ({
   pathB,
   setHoveredPiece,
   setMouseLocation,
+  mentions,
 }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -61,10 +62,9 @@ const MovingPiece = ({
         {expanded ? "Hide mentions" : "See mentions"}
       </SeeMentions>
       <Mentions expanded={expanded}>
-        Here is a ton of info about where it is mentioned did you see this and
-        this and this Here is a ton of info about where it is mentioned did you
-        see this and this and this Here is a ton of info about where it is
-        mentioned did you see this and this and this
+        {_.map(mentions, (mention, i) => (
+          <p key={i}>"... {mention} ..."</p>
+        ))}
       </Mentions>
     </div>
   );

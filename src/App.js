@@ -5,36 +5,7 @@ import SmallMultiples from "./article-sections/SmallMultiples.jsx";
 import Header from "./article-sections/Header.jsx";
 import GlobalFonts from "./fonts/fonts";
 import "./App.css";
-
-const GlobalStyle = createGlobalStyle`
-  h1 {
-    font-family: "Harry Potter Title";
-    font-size: 4em;
-    color: white;
-  }
-
-  h2 {
-    color: white;
-  }
-
-  h3 {
-    color: white;
-  }
-
-  body {
-    background: #302f2c;
-    margin: 0;
-    font-family: 'National 2 Web', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: white;
-  }
-
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-`;
+import { GlobalStyle } from "./styles.js";
 
 const AppWrapper = styled.div`
   display: flex;

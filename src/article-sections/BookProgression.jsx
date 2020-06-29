@@ -3,7 +3,10 @@ import { Scrollama, Step } from "react-scrollama";
 import styled from "styled-components";
 import CustomRadialChart from "../data-viz/CustomRadialChart.jsx";
 import spells from "../data/spellCounts.json";
+import spellMentions from "../data/spellMentions.json";
 import _ from "lodash";
+import bookThoughts from "./bookThoughts.js";
+import { useSpring } from "react-spring";
 
 const ChartWrapper = styled.div`
   display: flex;
@@ -53,6 +56,7 @@ const BookProgression = () => {
       <ChartWrapper>
         <CustomRadialChart
           fullData={spells}
+          mentions={spellMentions}
           currentBook={book}
           previousBook={previousBook}
         />
@@ -77,23 +81,3 @@ const BookProgression = () => {
 };
 
 export default BookProgression;
-
-const bookThoughts = {
-  1: (
-    <>
-      <p>Turns out there's not actually that much magic in Book 1.</p>
-      <p>
-        The most uttered spell is <strong>Wingardium Leviosa</strong>, which
-        Harry, Ron, and Hermione learn in Charms class and later use to defeat a
-        troll.
-      </p>
-      <p>Click on a spell to see where it's mentioned!</p>
-    </>
-  ),
-  2: <p>thoughts about book 2</p>,
-  3: <p>thoughts about book 3</p>,
-  4: <p>thoughts about book 4</p>,
-  5: <p>thoughts about book 5</p>,
-  6: <p>thoughts about book 6</p>,
-  7: <p>thoughts about book 7</p>,
-};

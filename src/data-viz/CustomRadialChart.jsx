@@ -4,7 +4,6 @@ import _ from "lodash";
 import "./CustomRadialChart.css";
 import MovingPiece from "./MovingPiece.jsx";
 import Legend from "./Legend.jsx";
-import Tooltip from "./Tooltip.jsx";
 import { getPath, getNullPath } from "./utils.js";
 import useChartDimensions from "../hooks/useChartDimensions.js";
 
@@ -19,7 +18,12 @@ const Pieces = styled.g`
     `translate(${props.boundedWidth / 2}px, ${props.boundedHeight / 2}px)`};
 `;
 
-const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
+const CustomRadialChart = ({
+  fullData,
+  mentions,
+  currentBook,
+  previousBook,
+}) => {
   const [hoveredPiece, setHoveredPiece] = useState(null);
   const [mouseLocation, setMouseLocation] = useState(null);
 
@@ -64,6 +68,7 @@ const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
                   )}
                   setHoveredPiece={setHoveredPiece}
                   setMouseLocation={setMouseLocation}
+                  mentions={mentions[currentBook][d.spell]}
                 />
               ) : null;
             })}
@@ -71,11 +76,6 @@ const CustomRadialChart = ({ fullData, currentBook, previousBook }) => {
         </g>
         <Legend dms={dms} data={fullData[currentBook]} />
       </svg>
-      {/* <Tooltip
-        data={fullData[currentBook]}
-        hoveredPiece={hoveredPiece}
-        mouseLocation={mouseLocation}
-      /> */}
     </ChartWrapper>
   );
 };
