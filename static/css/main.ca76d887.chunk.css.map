@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAEA,mBACE,YACF,CAEA,2BACE,eAAgB,CAChB,gBACF","file":"main.ca76d887.chunk.css","sourcesContent":["@import \"~antd/dist/antd.css\";\n\n.ant-popover-arrow {\n  display: none;\n}\n\n.ant-popover-inner-content {\n  overflow: scroll;\n  max-height: 200px;\n}\n"]}
