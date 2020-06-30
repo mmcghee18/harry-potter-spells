@@ -6,7 +6,7 @@ import spells from "../data/spellCounts.json";
 import spellMentions from "../data/spellMentions.json";
 import _ from "lodash";
 import { writtenThoughts, highlightedSections } from "./bookThoughts.js";
-import { useSpring } from "react-spring";
+import { useSpring, animated } from "react-spring";
 
 const ChartWrapper = styled.div`
   display: flex;
@@ -25,12 +25,16 @@ const ScrollamaWrapper = styled.div`
   margin-left: 50px;
 `;
 
-const StepWrapper = styled.div`
+const StepWrapper = styled(animated.div)`
   margin: 50vh 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 200px;
+  opacity: ${(props) => (props.triggered ? 1 : 0.4)};
+  &:nth-child(1) {
+    margin-top: -20vh;
+  }
 `;
 
 const Loading = styled.div`
@@ -42,24 +46,24 @@ const BookTitle = styled.h3`
 `;
 
 const BookProgression = () => {
-  const [book, setBook] = useState(1);
+  const [currentBook, setCurrentBook] = useState(1);
   const [previousBook, setPreviousBook] = useState(0);
 
   const onStepEnter = ({ data, direction }) => {
     if (direction === "up") setPreviousBook(data + 1);
     else if (direction === "down") setPreviousBook(data - 1);
-    setBook(data);
+    setCurrentBook(data);
   };
 
-  return !_.isEmpty(spells[book]) ? (
+  return !_.isEmpty(spells[currentBook]) ? (
     <>
       <ChartWrapper>
         <CustomRadialChart
           fullData={spells}
           mentions={spellMentions}
-          currentBook={book}
+          currentBook={currentBook}
           previousBook={previousBook}
-          highlightedSections={_.get(highlightedSections, book)}
+          highlightedSections={_.get(highlightedSections, currentBook)}
         />
       </ChartWrapper>
 
@@ -67,7 +71,7 @@ const BookProgression = () => {
         <Scrollama onStepEnter={onStepEnter} offset={0.7}>
           {_.range(1, 8).map((book) => (
             <Step data={book} key={book}>
-              <StepWrapper>
+              <StepWrapper triggered={currentBook === book}>
                 <BookTitle>Book {book}</BookTitle>
                 <div>{writtenThoughts[book]}</div>
               </StepWrapper>
