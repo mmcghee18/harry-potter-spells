@@ -1,5 +1,5 @@
-# Scrollytelling with Charts
+# Harry Potter Spells
 
-Learning more about scrollytelling. Still a work in progress. 👷🏽‍♀️
+Visualizing spell use across the Harry Potter series. Still a work in progress. 👷🏽‍♀️
 
-See it here: https://mmcghee18.github.io/scrollytelling-charts/
+See it here: https://mmcghee18.github.io/harry-potter-spells/
