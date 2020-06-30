@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/scrollytelling-charts/static/css/main.533f93c8.chunk.css",
-    "main.js": "/scrollytelling-charts/static/js/main.35944f05.chunk.js",
-    "main.js.map": "/scrollytelling-charts/static/js/main.35944f05.chunk.js.map",
-    "runtime-main.js": "/scrollytelling-charts/static/js/runtime-main.dbe24b60.js",
-    "runtime-main.js.map": "/scrollytelling-charts/static/js/runtime-main.dbe24b60.js.map",
-    "static/css/2.3cb76441.chunk.css": "/scrollytelling-charts/static/css/2.3cb76441.chunk.css",
-    "static/js/2.22ea77eb.chunk.js": "/scrollytelling-charts/static/js/2.22ea77eb.chunk.js",
-    "static/js/2.22ea77eb.chunk.js.map": "/scrollytelling-charts/static/js/2.22ea77eb.chunk.js.map",
-    "index.html": "/scrollytelling-charts/index.html",
-    "precache-manifest.a0115a3c500ddafaebd1814d4e8e9c3c.js": "/scrollytelling-charts/precache-manifest.a0115a3c500ddafaebd1814d4e8e9c3c.js",
-    "service-worker.js": "/scrollytelling-charts/service-worker.js",
-    "static/css/2.3cb76441.chunk.css.map": "/scrollytelling-charts/static/css/2.3cb76441.chunk.css.map",
-    "static/css/main.533f93c8.chunk.css.map": "/scrollytelling-charts/static/css/main.533f93c8.chunk.css.map",
-    "static/js/2.22ea77eb.chunk.js.LICENSE.txt": "/scrollytelling-charts/static/js/2.22ea77eb.chunk.js.LICENSE.txt",
-    "static/media/HarryP-Title.ttf": "/scrollytelling-charts/static/media/HarryP-Title.181ef9a7.ttf",
-    "static/media/National2Web-Regular.woff2": "/scrollytelling-charts/static/media/National2Web-Regular.2414fbff.woff2",
-    "static/media/National2Web-Regular.woff": "/scrollytelling-charts/static/media/National2Web-Regular.dc4310e6.woff",
-    "static/media/PublicoText-Roman-Web.woff2": "/scrollytelling-charts/static/media/PublicoText-Roman-Web.5f2e0ae8.woff2"
+    "main.css": "/harry-potter-spells/static/css/main.533f93c8.chunk.css",
+    "main.js": "/harry-potter-spells/static/js/main.0497b7fd.chunk.js",
+    "main.js.map": "/harry-potter-spells/static/js/main.0497b7fd.chunk.js.map",
+    "runtime-main.js": "/harry-potter-spells/static/js/runtime-main.0843ecc4.js",
+    "runtime-main.js.map": "/harry-potter-spells/static/js/runtime-main.0843ecc4.js.map",
+    "static/css/2.3cb76441.chunk.css": "/harry-potter-spells/static/css/2.3cb76441.chunk.css",
+    "static/js/2.5eeebcac.chunk.js": "/harry-potter-spells/static/js/2.5eeebcac.chunk.js",
+    "static/js/2.5eeebcac.chunk.js.map": "/harry-potter-spells/static/js/2.5eeebcac.chunk.js.map",
+    "index.html": "/harry-potter-spells/index.html",
+    "precache-manifest.33a72d0b090904cb31c70cbb3f5cdf67.js": "/harry-potter-spells/precache-manifest.33a72d0b090904cb31c70cbb3f5cdf67.js",
+    "service-worker.js": "/harry-potter-spells/service-worker.js",
+    "static/css/2.3cb76441.chunk.css.map": "/harry-potter-spells/static/css/2.3cb76441.chunk.css.map",
+    "static/css/main.533f93c8.chunk.css.map": "/harry-potter-spells/static/css/main.533f93c8.chunk.css.map",
+    "static/js/2.5eeebcac.chunk.js.LICENSE.txt": "/harry-potter-spells/static/js/2.5eeebcac.chunk.js.LICENSE.txt",
+    "static/media/HarryP-Title.ttf": "/harry-potter-spells/static/media/HarryP-Title.181ef9a7.ttf",
+    "static/media/National2Web-Regular.woff2": "/harry-potter-spells/static/media/National2Web-Regular.2414fbff.woff2",
+    "static/media/National2Web-Regular.woff": "/harry-potter-spells/static/media/National2Web-Regular.dc4310e6.woff",
+    "static/media/PublicoText-Roman-Web.woff2": "/harry-potter-spells/static/media/PublicoText-Roman-Web.5f2e0ae8.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.dbe24b60.js",
+    "static/js/runtime-main.0843ecc4.js",
     "static/css/2.3cb76441.chunk.css",
-    "static/js/2.22ea77eb.chunk.js",
+    "static/js/2.5eeebcac.chunk.js",
     "static/css/main.533f93c8.chunk.css",
-    "static/js/main.35944f05.chunk.js"
+    "static/js/main.0497b7fd.chunk.js"
   ]
 }
