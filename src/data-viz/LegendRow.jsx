@@ -1,6 +1,12 @@
 import React from "react";
 import { legendR } from "./utils.js";
 import { animated, useSpring } from "react-spring";
+import styled from "styled-components";
+import { spellColors } from "../styles.js";
+
+const ColoredCircle = styled(animated.circle)`
+  fill: ${(props) => spellColors[props.$spellType]};
+`;
 
 const LegendRow = ({ dms, i, spellType, spellTypes, percentage }) => {
   const margin =
@@ -41,9 +47,9 @@ const LegendRow = ({ dms, i, spellType, spellTypes, percentage }) => {
       >
         %
       </animated.text>
-      <animated.circle
+      <ColoredCircle
         key={`${spellType}-circle`}
-        className={spellType}
+        $spellType={spellType}
         r={legendR}
         cx={circleX}
         cy={circleAnimation.cy}

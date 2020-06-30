@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import _ from "lodash";
-import "./CustomRadialChart.css";
 import MovingPiece from "./MovingPiece.jsx";
 import Legend from "./Legend.jsx";
 import { getPath, getNullPath } from "./utils.js";

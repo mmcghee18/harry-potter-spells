@@ -3,6 +3,12 @@ import styled from "styled-components";
 import { animated, useSpring } from "react-spring";
 import _ from "lodash";
 import { Popover } from "antd";
+import { spellColors } from "../styles.js";
+
+const FilledPiece = styled.g`
+  opacity: ${(props) => (props.insignificant ? 0.4 : 1)};
+  fill: ${(props) => spellColors[props.spellType]};
+`;
 
 const Title = styled.p`
   color: #302f2c;
@@ -46,10 +52,6 @@ const MovingPiece = ({
     from: { d: pathA, opacity: 0 },
   });
 
-  const pieceClass = `${
-    insignificant ? "insignificant " : ""
-  }${data.type.toLowerCase()}`;
-
   const tooltipTitle = (
     <Title>
       {data.spell} : {data.mentions}
@@ -78,12 +80,15 @@ const MovingPiece = ({
         content={tooltipContent}
         placement="bottom"
       >
-        <g className={pieceClass}>
+        <FilledPiece
+          spellType={data.type.toLowerCase()}
+          insignificant={insignificant}
+        >
           <animated.path
             {...animations}
             stroke={highlighted ? "white" : null}
           />
-        </g>
+        </FilledPiece>
       </Popover>
     </>
   );

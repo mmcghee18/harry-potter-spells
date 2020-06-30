@@ -31,7 +31,7 @@ const StepWrapper = styled(animated.div)`
   flex-direction: column;
   align-items: center;
   width: 200px;
-  opacity: ${(props) => (props.triggered ? 1 : 0.4)};
+  opacity: ${(props) => (props.$triggered ? 1 : 0.4)};
   &:nth-child(1) {
     margin-top: -20vh;
   }
@@ -68,10 +68,10 @@ const BookProgression = () => {
       </ChartWrapper>
 
       <ScrollamaWrapper>
-        <Scrollama onStepEnter={onStepEnter} offset={0.7}>
+        <Scrollama onStepEnter={onStepEnter} offset={0.6}>
           {_.range(1, 8).map((book) => (
             <Step data={book} key={book}>
-              <StepWrapper triggered={currentBook === book}>
+              <StepWrapper $triggered={currentBook === book}>
                 <BookTitle>Book {book}</BookTitle>
                 <div>{writtenThoughts[book]}</div>
               </StepWrapper>

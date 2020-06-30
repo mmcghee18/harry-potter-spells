@@ -1,4 +1,11 @@
 import React from "react";
+import { spellColors } from "../styles.js";
+import styled from "styled-components";
+
+const HighlightedSpell = styled.span`
+  background: ${(props) => spellColors[props.spellType]};
+  color: ${(props) => (props.spellType === "charm" ? "black" : "white")};
+`;
 
 export const highlightedSections = {
   1: ["Wingardium Leviosa"],
@@ -21,9 +28,12 @@ export const writtenThoughts = {
     <>
       <p>Turns out there's not actually that much magic in Book 1.</p>
       <p>
-        The most uttered spell is <strong>Wingardium Leviosa</strong>, which
-        Harry, Ron, and Hermione learn in Charms class and later use to defeat a
-        troll.
+        The most uttered spell is{" "}
+        <HighlightedSpell spellType="charm">
+          Wingardium Leviosa
+        </HighlightedSpell>
+        , which Harry, Ron, and Hermione learn in Charms class and later use to
+        defeat a troll.
       </p>
       <p>Hover over a spell to see where it's mentioned!</p>
     </>
@@ -31,8 +41,9 @@ export const writtenThoughts = {
   2: (
     <>
       <p>
-        Harry's signature spell, <strong>Expelliarmus</strong>, makes its first
-        appearance in Book 2.
+        Harry's signature spell,{" "}
+        <HighlightedSpell spellType="charm">Expelliarmus</HighlightedSpell>,
+        makes its first appearance in Book 2.
       </p>
     </>
   ),
@@ -40,8 +51,9 @@ export const writtenThoughts = {
     <>
       <p>
         It's not surprising to see signature Book 3 spells like{" "}
-        <strong>Expecto Patronum</strong> and <strong>Riddikulus</strong> at the
-        top.
+        <HighlightedSpell spellType="charm">Expecto Patronum</HighlightedSpell>{" "}
+        and <HighlightedSpell spellType="spell">Riddikulus</HighlightedSpell> at
+        the top.
       </p>
       <p>
         This is also the only book that is absent of "dark" magical spells
@@ -78,8 +90,9 @@ export const writtenThoughts = {
     <>
       <p>
         The titular character (The Half-Blood Prince) created two of the most
-        used spells in this book (<strong>Sectumsempra</strong> and{" "}
-        <strong>Levicorpus</strong>).
+        used spells in this book (
+        <HighlightedSpell spellType="curse">Sectumsempra</HighlightedSpell> and{" "}
+        <HighlightedSpell spellType="jinx">Levicorpus</HighlightedSpell>).
       </p>
       <p>
         Of the spells mentioned in this book, 30% are considered dark magic, the
@@ -91,8 +104,10 @@ export const writtenThoughts = {
     <>
       <p>The final book has the most spell mentions of all the books (190!).</p>
       <p>
-        <strong>Avada Kedavra</strong> is mentioned 7 times, the most since Book
-        4.
+        <HighlightedSpell spellType="unforgivable">
+          Avada Kedavra
+        </HighlightedSpell>{" "}
+        is mentioned 7 times, the most since Book 4.
       </p>
     </>
   ),

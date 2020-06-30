@@ -24,8 +24,21 @@ export const GlobalStyle = createGlobalStyle`
     color: white;
   }
 
+  strong {
+    font-family: 'National 2 Web Bold';
+  }
+
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
 `;
+
+export const spellColors = {
+  charm: "#edf067",
+  spell: "#4f80b0",
+  jinx: "#1b3480",
+  hex: "#801d80",
+  curse: "#442f57",
+  unforgivable: "#171617",
+};
