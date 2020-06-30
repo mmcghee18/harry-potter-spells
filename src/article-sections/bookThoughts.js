@@ -2,7 +2,7 @@ import React from "react";
 import { spellColors } from "../styles.js";
 import styled from "styled-components";
 
-const HighlightedSpell = styled.span`
+const HighlightedSpell = styled.strong`
   background: ${(props) => spellColors[props.spellType]};
   color: ${(props) => (props.spellType === "charm" ? "black" : "white")};
 `;
