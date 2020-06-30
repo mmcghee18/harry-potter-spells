@@ -17,6 +17,13 @@ const DownArrow = styled(ArrowheadDownOutline)`
   margin-top: 15px;
 `;
 
+const Introduction = styled.div`
+  margin-top: 10vh;
+  margin-left: 200px;
+  margin-right: 200px;
+  text-align: center;
+`;
+
 const Header = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -26,7 +33,7 @@ const Header = () => {
     setCurrentStep(data);
   };
 
-  set({ opacity: currentStep === 3 ? 0 : 1 });
+  set({ opacity: currentStep === 4 ? 0 : 1 });
 
   return (
     <Wrapper>
@@ -36,14 +43,26 @@ const Header = () => {
         </Step>
         <Step data={1} key={1}>
           <h2>
-            ⚡️ Visualizing the spells mentioned across the Harry Potter series
-            ⚡️
+            Visualizing the spells mentioned across the Harry Potter series
           </h2>
         </Step>
         <Step data={2} key={2}>
           <h3>By Michelle McGhee</h3>
         </Step>
         <Step data={3} key={3}>
+          <Introduction>
+            <p>
+              During quarantine, I've been revisiting a comforting classic, the
+              Harry Potter series. 🤓⚡️📖
+            </p>
+            <p>
+              Which got me thinking: What spells are they doing? And what can
+              that tell us about the nature of each book?
+            </p>
+            <p>Let's find out.</p>
+          </Introduction>
+        </Step>
+        <Step data={4} key={4}>
           <animated.div
             style={{
               display: "flex",

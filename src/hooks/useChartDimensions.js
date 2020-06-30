@@ -33,7 +33,7 @@ const useChartDimensions = (passedSettings) => {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    if (dimensions.width && dimensions.height) return [ref, dimensions];
+    //if (dimensions.width && dimensions.height) return [ref, dimensions];
     const element = ref.current;
     const resizeObserver = new ResizeObserver((entries) => {
       if (!Array.isArray(entries)) return;

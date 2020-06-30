@@ -32,15 +32,7 @@ const Mentions = styled.div`
   display: ${(props) => (props.expanded ? "block" : "none")};
 `;
 
-const MovingPiece = ({
-  data,
-  pathA,
-  pathB,
-  setHoveredPiece,
-  setMouseLocation,
-  mentions,
-  highlighted,
-}) => {
+const MovingPiece = ({ data, pathA, pathB, mentions, highlighted }) => {
   const [expanded, setExpanded] = useState(false);
 
   const insignificant = data.mentions < 3;
@@ -73,24 +65,19 @@ const MovingPiece = ({
   );
 
   return (
-    <>
-      <Popover
-        arrowPointAtCenter={true}
-        title={tooltipTitle}
-        content={tooltipContent}
-        placement="bottom"
+    <Popover
+      arrowPointAtCenter={true}
+      title={tooltipTitle}
+      content={tooltipContent}
+      placement="bottom"
+    >
+      <FilledPiece
+        spellType={data.type.toLowerCase()}
+        insignificant={insignificant}
       >
-        <FilledPiece
-          spellType={data.type.toLowerCase()}
-          insignificant={insignificant}
-        >
-          <animated.path
-            {...animations}
-            stroke={highlighted ? "white" : null}
-          />
-        </FilledPiece>
-      </Popover>
-    </>
+        <animated.path {...animations} stroke={highlighted ? "white" : null} />
+      </FilledPiece>
+    </Popover>
   );
 };
 

@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import styled from "styled-components";
 import CustomRadialChart from "../data-viz/CustomRadialChart.jsx";
-import spells from "../data/spellCounts.json";
-import spellMentions from "../data/spellMentions.json";
 import _ from "lodash";
 import { writtenThoughts, highlightedSections } from "./bookThoughts.js";
 import { useSpring, animated } from "react-spring";
+
+const Wrapper = styled.div`
+  width: 100%;
+`;
 
 const ChartWrapper = styled.div`
   display: flex;
@@ -20,8 +22,6 @@ const ChartWrapper = styled.div`
 const ScrollamaWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  align-self: flex-start;
   margin-left: 50px;
 `;
 
@@ -41,11 +41,7 @@ const Loading = styled.div`
   margin-top: 40px;
 `;
 
-const BookTitle = styled.h3`
-  font-size: 1.6em;
-`;
-
-const BookProgression = () => {
+const BookProgression = ({ spells, spellMentions }) => {
   const [currentBook, setCurrentBook] = useState(1);
   const [previousBook, setPreviousBook] = useState(0);
 
@@ -56,7 +52,7 @@ const BookProgression = () => {
   };
 
   return !_.isEmpty(spells[currentBook]) ? (
-    <>
+    <Wrapper>
       <ChartWrapper>
         <CustomRadialChart
           fullData={spells}
@@ -72,14 +68,14 @@ const BookProgression = () => {
           {_.range(1, 8).map((book) => (
             <Step data={book} key={book}>
               <StepWrapper $triggered={currentBook === book}>
-                <BookTitle>Book {book}</BookTitle>
+                <h1>Book {book}</h1>
                 <div>{writtenThoughts[book]}</div>
               </StepWrapper>
             </Step>
           ))}
         </Scrollama>
       </ScrollamaWrapper>
-    </>
+    </Wrapper>
   ) : (
     <Loading>Loading...</Loading>
   );

@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 import BookProgression from "./article-sections/BookProgression.jsx";
 import SmallMultiples from "./article-sections/SmallMultiples.jsx";
 import Header from "./article-sections/Header.jsx";
+import spells from "./data/spellCounts.json";
+import spellMentions from "./data/spellMentions.json";
 import GlobalFonts from "./fonts/fonts";
 import "./App.css";
 import { GlobalStyle } from "./styles.js";
@@ -26,8 +28,8 @@ function App() {
 
       <AppWrapper>
         <Header />
-        <BookProgression />
-        {/* <SmallMultiples /> */}
+        <BookProgression spells={spells} spellMentions={spellMentions} />
+        <SmallMultiples spells={spells} />
       </AppWrapper>
     </>
   );
