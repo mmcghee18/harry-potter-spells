@@ -36,18 +36,25 @@ const SmallMultiples = ({ spells }) => {
     <SectionContainer>
       <h1>Bird's Eye View</h1>
       <WrappingRows>
-        {_.range(1, 8).map((book) => (
-          <ChartWrapper key={book}>
-            <h3 key={`title-${book}`}>{bookTitles[book]}</h3>
-            <CustomRadialChart
-              fullData={spells}
-              currentBook={book}
-              smallMultiple={true}
-              selectedSpell={selectedSpell}
-            />
-            <p key={`mentions-${book}`}>5</p>
-          </ChartWrapper>
-        ))}
+        {_.range(1, 8).map((book) => {
+          const lookupMentions = _.get(
+            _.find(spells[book], (d) => d.spell === selectedSpell),
+            "mentions"
+          );
+          const mentions = lookupMentions ? lookupMentions : 0;
+          return (
+            <ChartWrapper key={book}>
+              <h3 key={`title-${book}`}>{bookTitles[book]}</h3>
+              <CustomRadialChart
+                fullData={spells}
+                currentBook={book}
+                smallMultiple={true}
+                selectedSpell={selectedSpell}
+              />
+              <p key={`mentions-${book}`}>{mentions === 0 ? "-" : mentions}</p>
+            </ChartWrapper>
+          );
+        })}
         <Text>
           <h1>All Spells</h1>
           <ul>
