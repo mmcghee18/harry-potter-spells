@@ -31,7 +31,6 @@ const SectionContainer = styled.div`
 
 const SmallMultiples = ({ spells }) => {
   const [selectedSpell, setSelectedSpell] = useState(null);
-  console.log({ spells });
 
   return (
     <SectionContainer>
@@ -53,17 +52,35 @@ const SmallMultiples = ({ spells }) => {
           <h1>All Spells</h1>
           <ul>
             <li>
-              <a href="#" onClick={() => setSelectedSpell("Alohomora")}>
+              <a
+                href="#"
+                onClick={(e) => {
+                  setSelectedSpell("Alohomora");
+                  e.preventDefault();
+                }}
+              >
                 Alohomora
               </a>
             </li>
             <li>
-              <a href="#" onClick={() => setSelectedSpell("Avada Kedavra")}>
+              <a
+                href="#"
+                onClick={(e) => {
+                  setSelectedSpell("Avada Kedavra");
+                  e.preventDefault();
+                }}
+              >
                 Avada Kedavra
               </a>
             </li>
             <li>
-              <a href="#" onClick={() => setSelectedSpell("Accio")}>
+              <a
+                href="#"
+                onClick={(e) => {
+                  setSelectedSpell("Accio");
+                  e.preventDefault();
+                }}
+              >
                 Accio
               </a>
             </li>

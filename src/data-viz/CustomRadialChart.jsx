@@ -8,7 +8,7 @@ import { getPath, getNullPath } from "./utils.js";
 import useChartDimensions from "../hooks/useChartDimensions.js";
 
 const ChartWrapper = styled.div`
-  height: ${(props) => (props.fullScreen ? "85vh" : "25vh")};
+  height: ${(props) => (props.fullScreen ? "85vh" : "20vh")};
   margin-right: 20px;
   width: 90%;
 `;
@@ -62,6 +62,7 @@ const CustomRadialChart = ({
                       d.spell,
                       _.min([dms.boundedWidth, dms.boundedHeight])
                     )}
+                    highlighted={selectedSpell === d.spell}
                   />
                 );
               }
