@@ -80,7 +80,6 @@ const getListOfUniqueSpells = (spells) => {
 const SmallMultiples = ({ spells }) => {
   const [selectedSpell, setSelectedSpell] = useState(null);
 
-  console.log(getListOfUniqueSpells(spells));
   return (
     <SectionContainer>
       <h1>An Owl's-Eye View</h1>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { animated, useSpring } from "react-spring";
 import _ from "lodash";
-import { Popover } from "antd";
+import { Popover, Drawer } from "antd";
 import { spellColors } from "../styles.js";
 
 const FilledPiece = styled.g`
@@ -19,21 +19,20 @@ const Effect = styled.p`
   color: #302f2c;
 `;
 
-const SeeMentions = styled.p`
-  font-size: 12px;
-  color: #1890ff;
-  text-decoration: underline;
-  &:hover {
-    cursor: pointer;
-  }
+const Mention = styled.p`
+  color: black;
 `;
 
-const Mentions = styled.div`
-  display: ${(props) => (props.expanded ? "block" : "none")};
+const BlackH3 = styled.h3`
+  color: black;
+`;
+
+const ItalicizedEffect = styled.p`
+  font-style: italic;
 `;
 
 const MovingPiece = ({ data, pathA, pathB, mentions, highlighted }) => {
-  const [expanded, setExpanded] = useState(false);
+  const [clickedSpell, setClickedSpell] = useState(null);
 
   const insignificant = data.mentions < 3;
 
@@ -53,31 +52,63 @@ const MovingPiece = ({ data, pathA, pathB, mentions, highlighted }) => {
   const tooltipContent = (
     <div>
       <Effect>{data.effect}</Effect>
-      <SeeMentions onClick={() => setExpanded(!expanded)}>
-        {expanded ? "Hide mentions" : "See mentions"}
-      </SeeMentions>
-      <Mentions expanded={expanded}>
-        {_.map(mentions, (mention, i) => (
-          <p key={i}>"... {mention} ..."</p>
-        ))}
-      </Mentions>
     </div>
   );
 
+  const onClose = () => {
+    setClickedSpell(null);
+  };
+
   return (
-    <Popover
-      arrowPointAtCenter={true}
-      title={tooltipTitle}
-      content={tooltipContent}
-      placement="bottom"
-    >
-      <FilledPiece
-        spellType={data.type.toLowerCase()}
-        insignificant={insignificant}
+    <>
+      <Popover
+        arrowPointAtCenter={true}
+        title={tooltipTitle}
+        content={tooltipContent}
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
       >
-        <animated.path {...animations} stroke={highlighted ? "white" : null} />
-      </FilledPiece>
-    </Popover>
+        <FilledPiece
+          spellType={data.type.toLowerCase()}
+          insignificant={insignificant}
+          onClick={() => setClickedSpell(data)}
+        >
+          <animated.path
+            {...animations}
+            stroke={highlighted ? "white" : null}
+          />
+        </FilledPiece>
+      </Popover>
+      <Drawer
+        title={
+          <div>
+            <BlackH3>
+              {clickedSpell
+                ? `${clickedSpell.spell} (${clickedSpell.type})`
+                : ""}
+            </BlackH3>
+            <ItalicizedEffect>
+              {clickedSpell ? clickedSpell.effect : null}
+            </ItalicizedEffect>
+          </div>
+        }
+        placement="right"
+        visible={clickedSpell}
+        closable={false}
+        onClose={onClose}
+        bodyStyle={{
+          background: "#D6CCA9",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+        headerStyle={{ background: "#D6CCA9", borderBottom: "none" }}
+      >
+        {_.map(mentions, (mention, i) => (
+          <Mention key={i}>"... {mention} ..."</Mention>
+        ))}
+      </Drawer>
+    </>
   );
 };
 
