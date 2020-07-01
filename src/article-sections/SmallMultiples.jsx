@@ -56,42 +56,39 @@ const SmallMultiples = ({ spells }) => {
           );
         })}
         <Text>
-          <h1>All Spells</h1>
-          <ul>
-            <li>
-              <a
-                href="#"
-                onClick={(e) => {
-                  setSelectedSpell("Alohomora");
-                  e.preventDefault();
-                }}
-              >
-                Alohomora
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                onClick={(e) => {
-                  setSelectedSpell("Avada Kedavra");
-                  e.preventDefault();
-                }}
-              >
-                Avada Kedavra
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                onClick={(e) => {
-                  setSelectedSpell("Accio");
-                  e.preventDefault();
-                }}
-              >
-                Accio
-              </a>
-            </li>
-          </ul>
+          <p>
+            <a
+              href="#"
+              onClick={(e) => {
+                setSelectedSpell("Alohomora");
+                e.preventDefault();
+              }}
+            >
+              Alohomora
+            </a>
+          </p>
+          <p>
+            <a
+              href="#"
+              onClick={(e) => {
+                setSelectedSpell("Avada Kedavra");
+                e.preventDefault();
+              }}
+            >
+              Avada Kedavra
+            </a>
+          </p>
+          <p>
+            <a
+              href="#"
+              onClick={(e) => {
+                setSelectedSpell("Accio");
+                e.preventDefault();
+              }}
+            >
+              Accio
+            </a>
+          </p>
         </Text>
       </WrappingRows>
     </SectionContainer>

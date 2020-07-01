@@ -3,34 +3,29 @@ import spells from "../data/spellCounts.json";
 import { arc } from "d3-shape";
 import { scaleSqrt } from "d3-scale";
 
-// export const canvasWidth = 800;
-// export const canvasHeight = 800;
-// export const margin = 100;
-
-export const labelHeight = 80;
-export const labelWidth = 180;
-export const labelRx = 10;
-export const textSize = 14;
 export const legendR = 10;
 
-export const mostMentions = (data) => {
-  return _.get(
-    _.maxBy(data, (d) => d.mentions),
-    "mentions"
+const mostMentions = (data) => {
+  const topMentionsPerBook = _.map(data, (bookData) =>
+    _.get(
+      _.maxBy(bookData, (d) => d.mentions),
+      "mentions"
+    )
   );
+  return _.max(topMentionsPerBook);
 };
 
 export const getPath = (book, spell, maxLength) => {
-  const data = _.orderBy(spells[book], ["mentions"], ["desc"]);
-  const numBars = data.length;
-  const i = _.findIndex(data, { spell });
+  const bookData = _.orderBy(spells[book], ["mentions"], ["desc"]);
+  const numBars = bookData.length;
+  const i = _.findIndex(bookData, { spell });
 
   if (i === -1) return null;
   const scale = scaleSqrt()
-    .domain([0, mostMentions(data)])
+    .domain([0, mostMentions(spells)])
     .range([0, maxLength / 2]);
 
-  const pieceData = _.find(data, { spell });
+  const pieceData = _.find(bookData, { spell });
 
   const arcGenerator = arc()
     .startAngle(((Math.PI * 2) / numBars) * i)
@@ -42,9 +37,9 @@ export const getPath = (book, spell, maxLength) => {
 };
 
 export const getNullPath = (book, spell) => {
-  const data = _.orderBy(spells[book], ["mentions"], ["desc"]);
-  const numBars = data.length;
-  const i = _.findIndex(data, { spell });
+  const bookData = _.orderBy(spells[book], ["mentions"], ["desc"]);
+  const numBars = bookData.length;
+  const i = _.findIndex(bookData, { spell });
 
   if (i === -1) return null;
 

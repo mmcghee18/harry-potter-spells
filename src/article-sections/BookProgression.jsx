@@ -4,7 +4,6 @@ import styled from "styled-components";
 import CustomRadialChart from "../data-viz/CustomRadialChart.jsx";
 import _ from "lodash";
 import { writtenThoughts, highlightedSections } from "./bookThoughts.js";
-import { useSpring, animated } from "react-spring";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -25,7 +24,7 @@ const ScrollamaWrapper = styled.div`
   margin-left: 50px;
 `;
 
-const StepWrapper = styled(animated.div)`
+const StepWrapper = styled.div`
   margin: 50vh 0;
   display: flex;
   flex-direction: column;
