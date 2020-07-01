@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import CustomRadialChart from "../data-viz/CustomRadialChart.jsx";
 import bookTitles from "../data/bookTitles.js";
+import { spellColors } from "../styles.js";
 import _ from "lodash";
 
 const WrappingRows = styled.div`
@@ -20,6 +21,30 @@ const ChartWrapper = styled.div`
 const Text = styled.div`
   width: 60vw;
   height: 30vh;
+  overflow: scroll;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+`;
+
+const SpellContainer = styled.p`
+  margin-right: 10px;
+`;
+
+const Spell = styled.a`
+  color: white;
+  opacity: ${(props) => (props.selected ? 1 : 0.4)};
+  background: ${(props) =>
+    props.selected ? spellColors[props.spellType] : null};
+  color: ${(props) =>
+    props.spellType === "charm" && props.selected ? "black" : "white"};
+
+  &:hover {
+    color: ${(props) =>
+      props.spellType === "charm" && props.selected ? "black" : "white"};
+    opacity: 1;
+  }
 `;
 
 const SectionContainer = styled.div`
@@ -29,9 +54,25 @@ const SectionContainer = styled.div`
   align-items: center;
 `;
 
+const getListOfUniqueSpells = (spells) => {
+  const spellsForEachBook = _.map(spells, (bookData) =>
+    _.map(bookData, (d) => ({ spell: d.spell, type: d.type }))
+  );
+  const allSpells = _.union(...spellsForEachBook);
+  const uniqueSpells = _.uniqBy(allSpells, (s) => s.spell);
+
+  return _.sortBy(uniqueSpells, (d) => {
+    if (d.spell.includes("(")) {
+      return d.spell.substring(1, d.spell.length - 1);
+    }
+    return d.spell;
+  });
+};
+
 const SmallMultiples = ({ spells }) => {
   const [selectedSpell, setSelectedSpell] = useState(null);
 
+  console.log(getListOfUniqueSpells(spells));
   return (
     <SectionContainer>
       <h1>Bird's Eye View</h1>
@@ -56,39 +97,21 @@ const SmallMultiples = ({ spells }) => {
           );
         })}
         <Text>
-          <p>
-            <a
-              href="#"
-              onClick={(e) => {
-                setSelectedSpell("Alohomora");
-                e.preventDefault();
-              }}
-            >
-              Alohomora
-            </a>
-          </p>
-          <p>
-            <a
-              href="#"
-              onClick={(e) => {
-                setSelectedSpell("Avada Kedavra");
-                e.preventDefault();
-              }}
-            >
-              Avada Kedavra
-            </a>
-          </p>
-          <p>
-            <a
-              href="#"
-              onClick={(e) => {
-                setSelectedSpell("Accio");
-                e.preventDefault();
-              }}
-            >
-              Accio
-            </a>
-          </p>
+          {_.map(getListOfUniqueSpells(spells), ({ spell, type }) => (
+            <SpellContainer key={spell}>
+              <Spell
+                href="#"
+                onClick={(e) => {
+                  setSelectedSpell(spell);
+                  e.preventDefault();
+                }}
+                selected={spell === selectedSpell}
+                spellType={type.toLowerCase()}
+              >
+                {spell}
+              </Spell>
+            </SpellContainer>
+          ))}
         </Text>
       </WrappingRows>
     </SectionContainer>
