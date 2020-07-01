@@ -16,6 +16,14 @@ const ChartWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 33.33vw;
+  position: relative;
+`;
+
+const Mentions = styled.p`
+  position: absolute;
+  top: 12.5vh;
+  right: 16.66vw;
+  font-size: 2.5em;
 `;
 
 const Text = styled.div`
@@ -75,7 +83,7 @@ const SmallMultiples = ({ spells }) => {
   console.log(getListOfUniqueSpells(spells));
   return (
     <SectionContainer>
-      <h1>Bird's Eye View</h1>
+      <h1>An Owl's-Eye View</h1>
       <WrappingRows>
         {_.range(1, 8).map((book) => {
           const lookupMentions = _.get(
@@ -92,7 +100,9 @@ const SmallMultiples = ({ spells }) => {
                 smallMultiple={true}
                 selectedSpell={selectedSpell}
               />
-              <p key={`mentions-${book}`}>{mentions === 0 ? "-" : mentions}</p>
+              <Mentions key={`mentions-${book}`}>
+                <strong>{mentions !== 0 ? mentions : null}</strong>
+              </Mentions>
             </ChartWrapper>
           );
         })}
