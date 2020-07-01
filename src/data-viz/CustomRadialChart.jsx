@@ -92,6 +92,7 @@ const CustomRadialChart = ({
                 <MovingPiece
                   key={`${d.spell}${d.book}`}
                   data={d}
+                  book={currentBook}
                   pathA={pathA}
                   pathB={pathB}
                   mentions={mentions ? mentions[currentBook][d.spell] : null}
