@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/harry-potter-spells/static/css/main.ca76d887.chunk.css",
-    "main.js": "/harry-potter-spells/static/js/main.8c37a4de.chunk.js",
-    "main.js.map": "/harry-potter-spells/static/js/main.8c37a4de.chunk.js.map",
+    "main.js": "/harry-potter-spells/static/js/main.1c9ebe20.chunk.js",
+    "main.js.map": "/harry-potter-spells/static/js/main.1c9ebe20.chunk.js.map",
     "runtime-main.js": "/harry-potter-spells/static/js/runtime-main.0843ecc4.js",
     "runtime-main.js.map": "/harry-potter-spells/static/js/runtime-main.0843ecc4.js.map",
     "static/css/2.3cb76441.chunk.css": "/harry-potter-spells/static/css/2.3cb76441.chunk.css",
-    "static/js/2.b49ff469.chunk.js": "/harry-potter-spells/static/js/2.b49ff469.chunk.js",
-    "static/js/2.b49ff469.chunk.js.map": "/harry-potter-spells/static/js/2.b49ff469.chunk.js.map",
+    "static/js/2.3d315d40.chunk.js": "/harry-potter-spells/static/js/2.3d315d40.chunk.js",
+    "static/js/2.3d315d40.chunk.js.map": "/harry-potter-spells/static/js/2.3d315d40.chunk.js.map",
     "index.html": "/harry-potter-spells/index.html",
-    "precache-manifest.2e4d3e7a43bf146588eb36860d920497.js": "/harry-potter-spells/precache-manifest.2e4d3e7a43bf146588eb36860d920497.js",
+    "precache-manifest.ff4e724442d9408d8f3ba55ad2d7d6af.js": "/harry-potter-spells/precache-manifest.ff4e724442d9408d8f3ba55ad2d7d6af.js",
     "service-worker.js": "/harry-potter-spells/service-worker.js",
     "static/css/2.3cb76441.chunk.css.map": "/harry-potter-spells/static/css/2.3cb76441.chunk.css.map",
     "static/css/main.ca76d887.chunk.css.map": "/harry-potter-spells/static/css/main.ca76d887.chunk.css.map",
-    "static/js/2.b49ff469.chunk.js.LICENSE.txt": "/harry-potter-spells/static/js/2.b49ff469.chunk.js.LICENSE.txt",
+    "static/js/2.3d315d40.chunk.js.LICENSE.txt": "/harry-potter-spells/static/js/2.3d315d40.chunk.js.LICENSE.txt",
     "static/media/HarryP-Title.ttf": "/harry-potter-spells/static/media/HarryP-Title.181ef9a7.ttf",
     "static/media/National2Web-Bold.woff": "/harry-potter-spells/static/media/National2Web-Bold.8de3108e.woff",
     "static/media/National2Web-Bold.woff2": "/harry-potter-spells/static/media/National2Web-Bold.a83736a1.woff2",
@@ -24,8 +24,8 @@
   "entrypoints": [
     "static/js/runtime-main.0843ecc4.js",
     "static/css/2.3cb76441.chunk.css",
-    "static/js/2.b49ff469.chunk.js",
+    "static/js/2.3d315d40.chunk.js",
     "static/css/main.ca76d887.chunk.css",
-    "static/js/main.8c37a4de.chunk.js"
+    "static/js/main.1c9ebe20.chunk.js"
   ]
 }
