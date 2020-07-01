@@ -96,6 +96,7 @@ const MovingPiece = ({ data, book, pathA, pathB, mentions, highlighted }) => {
           <animated.path
             {...animations}
             stroke={highlighted ? "white" : null}
+            strokeWidth={highlighted ? 2.5 : null}
           />
         </FilledPiece>
       </Popover>
