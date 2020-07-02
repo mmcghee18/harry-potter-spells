@@ -62,7 +62,7 @@ const Header = () => {
           <Title>"It's LeviOsa, not LevioSA!"</Title>
         </Step>
         <Step data={1} key={1}>
-          <Subtitle>Visauzling every spell in Harry Potter</Subtitle>
+          <Subtitle>Visualizing every spell in Harry Potter</Subtitle>
         </Step>
         <Step data={2} key={2}>
           <h3>
@@ -79,8 +79,8 @@ const Header = () => {
               Harry Potter series. 🤓⚡️📖
             </p>
             <p>
-              Which got me thinking: What spells are they doing? And what can
-              that tell us about the nature of each book?
+              Which got me thinking: What can the magic that the characters
+              perform tell us about the nature of each book?
             </p>
             <p>Let's find out.</p>
           </Introduction>

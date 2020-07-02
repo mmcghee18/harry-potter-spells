@@ -60,6 +60,7 @@ const MovingPiece = ({ data, book, pathA, pathB, mentions, highlighted }) => {
   const tooltipContent = (
     <div>
       <Effect>{data.effect}</Effect>
+      <div style={{ fontSize: "12px" }}>Click to see where it's mentioned</div>
     </div>
   );
 

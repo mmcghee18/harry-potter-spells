@@ -21,7 +21,7 @@ const ChartWrapper = styled.div`
 const ScrollamaWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
+  margin-left: 74px;
 `;
 
 const StepWrapper = styled.div`
@@ -29,7 +29,7 @@ const StepWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 200px;
+  width: 240px;
   opacity: ${(props) => (props.$triggered ? 1 : 0.4)};
   &:nth-child(1) {
     margin-top: -20vh;

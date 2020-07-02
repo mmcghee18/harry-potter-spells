@@ -35,7 +35,6 @@ export const writtenThoughts = {
         , which Harry, Ron, and Hermione learn in Charms class and later use to
         defeat a troll.
       </p>
-      <p>Click a spell to see where it's mentioned!</p>
     </>
   ),
   2: (
