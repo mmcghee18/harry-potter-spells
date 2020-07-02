@@ -61,7 +61,7 @@ const Footer = () => {
               target="_blank"
               href="https://harrypotter.fandom.com/wiki/List_of_spells"
             >
-              here
+              here.
             </Link>
           </strong>
         </p>
@@ -72,7 +72,7 @@ const Footer = () => {
               target="_blank"
               href="https://github.com/neelk07/neelkothari/tree/master/blog/static/data/text"
             >
-              here
+              here.
             </Link>
           </strong>
         </p>

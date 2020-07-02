@@ -4,7 +4,7 @@ import _ from "lodash";
 import MovingPiece from "./MovingPiece.jsx";
 import StaticPiece from "./StaticPiece.jsx";
 import Legend from "./Legend.jsx";
-import { getPath, getNullPath } from "./utils.js";
+import { getPath, getNullPath } from "../data/utils.js";
 import useChartDimensions from "../hooks/useChartDimensions.js";
 
 const ChartWrapper = styled.div`

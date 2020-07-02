@@ -1,5 +1,5 @@
 import React from "react";
-import { legendR } from "./utils.js";
+import { legendR } from "../data/utils.js";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 import { spellColors } from "../styles.js";

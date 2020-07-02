@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CustomRadialChart from "../data-viz/CustomRadialChart.jsx";
 import bookTitles from "../data/bookTitles.js";
 import { spellColors } from "../styles.js";
+import { getListOfUniqueSpells } from "../data/utils.js";
 import { Tooltip, Button } from "antd";
 import _ from "lodash";
 
@@ -89,54 +90,6 @@ const Title = styled.h3`
   margin: 0;
   opacity: ${(props) => (props.hasMentions ? 1 : 0.1)};
 `;
-
-const getListOfUniqueSpells = (spells, sortType) => {
-  const spellsForEachBook = _.map(spells, (bookData) =>
-    _.map(bookData, (d) => ({
-      spell: d.spell,
-      type: d.type,
-      effect: d.effect,
-      mentions: d.mentions,
-    }))
-  );
-  const allSpells = _.union(...spellsForEachBook);
-
-  const uniqueSpellsWithTotalMentions = _.reduce(
-    allSpells,
-    (result, currentSpell) => {
-      const spellNames = _.map(result, (d) => d.spell);
-      if (!spellNames.includes(currentSpell.spell)) {
-        result.push(currentSpell);
-      } else {
-        const index = _.findIndex(
-          result,
-          (d) => d.spell === currentSpell.spell
-        );
-        const updatedMentions = result[index].mentions + currentSpell.mentions;
-        _.set(result[index], "mentions", updatedMentions);
-      }
-      return result;
-    },
-    []
-  );
-
-  if (sortType === 0) {
-    return _.sortBy(uniqueSpellsWithTotalMentions, (d) => {
-      if (d.spell.includes("(")) {
-        return d.spell.substring(1, d.spell.length - 1);
-      }
-      return d.spell;
-    });
-  }
-
-  return _.orderBy(
-    uniqueSpellsWithTotalMentions,
-    (d) => {
-      return d.mentions;
-    },
-    ["desc"]
-  );
-};
 
 const SmallMultiples = ({ spells }) => {
   const [selectedSpell, setSelectedSpell] = useState(null);
