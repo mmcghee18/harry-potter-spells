@@ -1,31 +1,33 @@
 {
   "files": {
     "main.css": "/harry-potter-spells/static/css/main.ca76d887.chunk.css",
-    "main.js": "/harry-potter-spells/static/js/main.1c9ebe20.chunk.js",
-    "main.js.map": "/harry-potter-spells/static/js/main.1c9ebe20.chunk.js.map",
+    "main.js": "/harry-potter-spells/static/js/main.dbdf32b3.chunk.js",
+    "main.js.map": "/harry-potter-spells/static/js/main.dbdf32b3.chunk.js.map",
     "runtime-main.js": "/harry-potter-spells/static/js/runtime-main.0843ecc4.js",
     "runtime-main.js.map": "/harry-potter-spells/static/js/runtime-main.0843ecc4.js.map",
     "static/css/2.3cb76441.chunk.css": "/harry-potter-spells/static/css/2.3cb76441.chunk.css",
-    "static/js/2.3d315d40.chunk.js": "/harry-potter-spells/static/js/2.3d315d40.chunk.js",
-    "static/js/2.3d315d40.chunk.js.map": "/harry-potter-spells/static/js/2.3d315d40.chunk.js.map",
+    "static/js/2.395cfe89.chunk.js": "/harry-potter-spells/static/js/2.395cfe89.chunk.js",
+    "static/js/2.395cfe89.chunk.js.map": "/harry-potter-spells/static/js/2.395cfe89.chunk.js.map",
     "index.html": "/harry-potter-spells/index.html",
-    "precache-manifest.ff4e724442d9408d8f3ba55ad2d7d6af.js": "/harry-potter-spells/precache-manifest.ff4e724442d9408d8f3ba55ad2d7d6af.js",
+    "precache-manifest.f599da0688900652fe762a2db584532b.js": "/harry-potter-spells/precache-manifest.f599da0688900652fe762a2db584532b.js",
     "service-worker.js": "/harry-potter-spells/service-worker.js",
     "static/css/2.3cb76441.chunk.css.map": "/harry-potter-spells/static/css/2.3cb76441.chunk.css.map",
     "static/css/main.ca76d887.chunk.css.map": "/harry-potter-spells/static/css/main.ca76d887.chunk.css.map",
-    "static/js/2.3d315d40.chunk.js.LICENSE.txt": "/harry-potter-spells/static/js/2.3d315d40.chunk.js.LICENSE.txt",
+    "static/js/2.395cfe89.chunk.js.LICENSE.txt": "/harry-potter-spells/static/js/2.395cfe89.chunk.js.LICENSE.txt",
     "static/media/HarryP-Title.ttf": "/harry-potter-spells/static/media/HarryP-Title.181ef9a7.ttf",
     "static/media/National2Web-Bold.woff": "/harry-potter-spells/static/media/National2Web-Bold.8de3108e.woff",
     "static/media/National2Web-Bold.woff2": "/harry-potter-spells/static/media/National2Web-Bold.a83736a1.woff2",
     "static/media/National2Web-Regular.woff2": "/harry-potter-spells/static/media/National2Web-Regular.2414fbff.woff2",
     "static/media/National2Web-Regular.woff": "/harry-potter-spells/static/media/National2Web-Regular.dc4310e6.woff",
-    "static/media/PublicoText-Roman-Web.woff2": "/harry-potter-spells/static/media/PublicoText-Roman-Web.5f2e0ae8.woff2"
+    "static/media/PublicoText-Roman-Web.woff2": "/harry-potter-spells/static/media/PublicoText-Roman-Web.5f2e0ae8.woff2",
+    "static/media/its_leviosa.gif": "/harry-potter-spells/static/media/its_leviosa.8df5bc60.gif",
+    "static/media/performing_spell.gif": "/harry-potter-spells/static/media/performing_spell.d8697c36.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.0843ecc4.js",
     "static/css/2.3cb76441.chunk.css",
-    "static/js/2.3d315d40.chunk.js",
+    "static/js/2.395cfe89.chunk.js",
     "static/css/main.ca76d887.chunk.css",
-    "static/js/main.1c9ebe20.chunk.js"
+    "static/js/main.dbdf32b3.chunk.js"
   ]
 }
