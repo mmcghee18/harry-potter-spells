@@ -57,9 +57,14 @@ const SlidingDrawer = ({ clickedSpell, setClickedSpell, mentions, book }) => {
       headerStyle={{ background: "#d4be87", borderBottom: "none" }}
     >
       <Timeline book={book} mentions={mentions} clickedSpell={clickedSpell} />
-      {_.map(mentions, (mention, i) => (
-        <Mention key={i}>"... {mention.text} ..."</Mention>
-      ))}
+      {_.map(mentions, (mention, i) => {
+        const createMarkup = () => {
+          return { __html: `... ${mention.text} ...` };
+        };
+        return (
+          <Mention key={i} dangerouslySetInnerHTML={createMarkup()}></Mention>
+        );
+      })}
     </Drawer>
   );
 };
