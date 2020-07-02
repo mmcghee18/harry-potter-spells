@@ -8,8 +8,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
-  height: 100vh;
+  margin-top: 10vh;
+  height: 90vh;
+  margin-left: 50px;
+  margin-right: 50px;
 `;
 
 const DownArrow = styled(ArrowheadDownOutline)`
@@ -17,11 +19,29 @@ const DownArrow = styled(ArrowheadDownOutline)`
   margin-top: 15px;
 `;
 
-const Introduction = styled.div`
-  margin-top: 10vh;
-  margin-left: 200px;
-  margin-right: 200px;
+const Title = styled.h1`
+  font-size: 6em;
+  margin-bottom: 0;
   text-align: center;
+`;
+
+const Subtitle = styled.h2`
+  margin-bottom: 8vh;
+`;
+
+const Link = styled.a`
+  text-decoration: underline;
+  color: white;
+  &:hover {
+    text-decoration: underline;
+    color: #1890ff;
+  }
+`;
+
+const Introduction = styled.div`
+  margin-top: 8vh;
+  text-align: center;
+  font-size: 16px;
 `;
 
 const Header = () => {
@@ -39,15 +59,18 @@ const Header = () => {
     <Wrapper>
       <Scrollama onStepEnter={onStepEnter} offset={0.2}>
         <Step data={0} key={0}>
-          <h1>"It's LeviOsa, not LevioSA!"</h1>
+          <Title>"It's LeviOsa, not LevioSA!"</Title>
         </Step>
         <Step data={1} key={1}>
-          <h2>
-            Visualizing the spells mentioned across the Harry Potter series
-          </h2>
+          <Subtitle>Visauzling every spell in Harry Potter</Subtitle>
         </Step>
         <Step data={2} key={2}>
-          <h3>By Michelle McGhee</h3>
+          <h3>
+            By{" "}
+            <Link href="https://mmcghee18.github.io/">
+              <strong>Michelle McGhee</strong>
+            </Link>
+          </h3>
         </Step>
         <Step data={3} key={3}>
           <Introduction>
@@ -67,7 +90,7 @@ const Header = () => {
             style={{
               display: "flex",
               flexDirection: "column",
-              marginTop: "100px",
+              marginTop: "10vh",
               ...props,
             }}
           >

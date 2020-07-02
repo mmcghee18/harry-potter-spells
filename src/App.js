@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BookProgression from "./article-sections/BookProgression.jsx";
 import SmallMultiples from "./article-sections/SmallMultiples.jsx";
 import Header from "./article-sections/Header.jsx";
+import Footer from "./article-sections/Footer.jsx";
 import spells from "./data/spellCounts.json";
 import spellMentions from "./data/spellMentions.json";
 import GlobalFonts from "./fonts/fonts";
@@ -30,6 +31,7 @@ function App() {
         <Header />
         <BookProgression spells={spells} spellMentions={spellMentions} />
         <SmallMultiples spells={spells} />
+        <Footer />
       </AppWrapper>
     </>
   );

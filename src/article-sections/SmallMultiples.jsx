@@ -29,10 +29,10 @@ const Mentions = styled.p`
 const Text = styled.div`
   width: 60vw;
   height: 30vh;
-  overflow: scroll;
+  overflow-y: scroll;
   padding: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
 `;
 
@@ -60,6 +60,25 @@ const SectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+`;
+
+const Fade = styled.div`
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 100px;
+  z-index: 100;
+  background: linear-gradient(
+    to top,
+    rgb(48, 47, 44) 0%,
+    rgb(48, 47, 44, 0) 100%
+  );
+`;
+
+const Title = styled.h3`
+  opacity: ${(props) => (props.hasMentions ? 1 : 0.1)};
 `;
 
 const getListOfUniqueSpells = (spells) => {
@@ -92,7 +111,9 @@ const SmallMultiples = ({ spells }) => {
           const mentions = lookupMentions ? lookupMentions : 0;
           return (
             <ChartWrapper key={book}>
-              <h3 key={`title-${book}`}>{bookTitles[book]}</h3>
+              <Title key={`title-${book}`} hasMentions={mentions !== 0}>
+                {bookTitles[book]}
+              </Title>
               <CustomRadialChart
                 fullData={spells}
                 currentBook={book}
@@ -123,6 +144,7 @@ const SmallMultiples = ({ spells }) => {
           ))}
         </Text>
       </WrappingRows>
+      <Fade />
     </SectionContainer>
   );
 };
