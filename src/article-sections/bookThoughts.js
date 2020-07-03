@@ -49,7 +49,7 @@ export const writtenThoughts = {
   3: (
     <>
       <p>
-        It's not surprising to see signature Book 3 spells like{" "}
+        It's not surprising to see classic Book 3 spells like{" "}
         <HighlightedSpell spellType="charm">Expecto Patronum</HighlightedSpell>{" "}
         and <HighlightedSpell spellType="spell">Riddikulus</HighlightedSpell> at
         the top.

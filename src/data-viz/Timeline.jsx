@@ -6,7 +6,19 @@ import { scaleLinear } from "d3-scale";
 import bookLengths from "../data/bookLengths.js";
 import useChartDimensions from "../hooks/useChartDimensions.js";
 
-const Timeline = ({ book, mentions, clickedSpell }) => {
+const AnimatedCircle = styled(animated.circle)`
+  &:hover {
+    stroke: white;
+  }
+`;
+
+const Timeline = ({
+  book,
+  mentions,
+  clickedSpell,
+  setHoveredMention,
+  scrollToMention,
+}) => {
   const chartSettings = { height: 50 };
   const [ref, dms] = useChartDimensions(chartSettings);
   const domain = [0, bookLengths[book]]; // book character indicies
@@ -35,14 +47,17 @@ const Timeline = ({ book, mentions, clickedSpell }) => {
           stroke="grey"
         />
         {springs.map((props, i) => (
-          <>
-            <animated.circle
-              key={i}
-              cx={props.cx}
-              cy={chartSettings.height / 2}
-              r={circleR}
-            />
-          </>
+          <AnimatedCircle
+            key={i}
+            cx={props.cx}
+            cy={chartSettings.height / 2}
+            r={circleR}
+            onMouseEnter={() => {
+              setHoveredMention(mentions[i].index);
+              scrollToMention(mentions[i].index);
+            }}
+            onMouseLeave={() => setHoveredMention(null)}
+          />
         ))}
       </svg>
     </div>

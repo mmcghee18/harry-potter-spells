@@ -67,7 +67,7 @@ const Header = () => {
         <Step data={2} key={2}>
           <h3>
             By{" "}
-            <Link href="https://mmcghee18.github.io/">
+            <Link target="_blank" href="https://mmcghee18.github.io/">
               <strong>Michelle McGhee</strong>
             </Link>
           </h3>
