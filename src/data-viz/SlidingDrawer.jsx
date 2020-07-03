@@ -53,7 +53,8 @@ const SlidingDrawer = ({ clickedSpell, setClickedSpell, mentions, book }) => {
           {clickedSpell ? clickedSpell.effect : null}
         </ItalicizedEffect>
         <TimelineTitle>
-          Where it happened (in Harry Potter and the {bookTitles[book]}):
+          Where it happened (in{" "}
+          <strong>Harry Potter and the {bookTitles[book]}</strong>):
         </TimelineTitle>
       </div>
       <Timeline

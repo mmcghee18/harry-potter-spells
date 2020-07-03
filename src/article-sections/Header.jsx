@@ -75,14 +75,13 @@ const Header = () => {
         <Step data={3} key={3}>
           <Introduction>
             <p>
-              During quarantine, I've been revisiting a comforting classic, the
-              Harry Potter series. 🤓⚡️📖
+              Recently, I've been revisiting a comforting classic, the Harry
+              Potter series. 🤓⚡️📖
             </p>
             <p>
-              Which got me thinking: What can the magic that the characters
-              perform tell us about the nature of each book?
+              I present to you, every single spell ever uttered in the Harry
+              Potter book universe, laid out for you to explore.
             </p>
-            <p>Let's find out.</p>
           </Introduction>
         </Step>
         <Step data={4} key={4}>

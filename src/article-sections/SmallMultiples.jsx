@@ -91,13 +91,25 @@ const Title = styled.h3`
   opacity: ${(props) => (props.hasMentions ? 1 : 0.1)};
 `;
 
+const Instructions = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  width: 200px;
+`;
+
 const SmallMultiples = ({ spells }) => {
   const [selectedSpell, setSelectedSpell] = useState(null);
   const [sortType, setSortType] = useState(1);
 
   return (
     <SectionContainer>
-      <h1>An Owl's-Eye View</h1>
+      <div style={{ display: "flex", marginBottom: "2em" }}>
+        <h1 style={{ marginBottom: 0 }}>An Owl's-Eye View</h1>
+        <Instructions>
+          Click on a spell to see where it appears over the series!
+        </Instructions>
+      </div>
       <WrappingRows>
         {_.range(1, 8).map((book) => {
           const lookupMentions = _.get(

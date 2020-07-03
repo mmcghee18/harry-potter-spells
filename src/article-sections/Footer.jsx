@@ -44,7 +44,7 @@ const Footer = () => {
     <Wrapper>
       <Line />
       <div style={{ alignSelf: "flex-start", width: "100%" }}>
-        <h1>Credits</h1>
+        <h1>Sources</h1>
         <p>
           Full list of spells from{" "}
           <strong>
