@@ -15,14 +15,17 @@ const BlackH3 = styled.h3`
   margin-top: 30px;
 `;
 
-const BookTitle = styled.h1`
+const BookTitle = styled.h2`
   color: black;
-  text-align: center;
   font-size: 2em;
 `;
 
 const ItalicizedEffect = styled.p`
   font-style: italic;
+`;
+
+const TimelineTitle = styled.div`
+  margin-top: 50px;
 `;
 
 const SlidingDrawer = ({ clickedSpell, setClickedSpell, mentions, book }) => {
@@ -42,13 +45,16 @@ const SlidingDrawer = ({ clickedSpell, setClickedSpell, mentions, book }) => {
   const drawerHeader = (
     <>
       <div>
-        <BookTitle>Harry Potter and the {bookTitles[book]}</BookTitle>
-        <BlackH3>
+        <BookTitle>
+          {" "}
           {clickedSpell ? `${clickedSpell.spell} (${clickedSpell.type})` : ""}
-        </BlackH3>
+        </BookTitle>
         <ItalicizedEffect>
           {clickedSpell ? clickedSpell.effect : null}
         </ItalicizedEffect>
+        <TimelineTitle>
+          Where it happened (in Harry Potter and the {bookTitles[book]}):
+        </TimelineTitle>
       </div>
       <Timeline
         book={book}

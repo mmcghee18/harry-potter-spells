@@ -12,6 +12,11 @@ const AnimatedCircle = styled(animated.circle)`
   }
 `;
 
+const TimelineLabel = styled.text`
+  fill: grey;
+  font-size: 12px;
+`;
+
 const Timeline = ({
   book,
   mentions,
@@ -42,6 +47,10 @@ const Timeline = ({
   return (
     <div ref={ref}>
       <svg width={dms.width} height={dms.height}>
+        <TimelineLabel transform={"translate(0, 40)"}>start</TimelineLabel>
+        <TimelineLabel transform={`translate(${range[1] - 10}, 40)`}>
+          end
+        </TimelineLabel>
         <path
           d={["M", range[0], chartSettings.height / 2, "H", range[1]].join(" ")}
           stroke="grey"
