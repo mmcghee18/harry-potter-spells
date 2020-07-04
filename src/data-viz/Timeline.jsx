@@ -38,7 +38,7 @@ const Timeline = ({
     return clickedSpell
       ? {
           cx: xScale(mentions[m].index),
-          delay: 500,
+          delay: 500 + 50 * (mentions.length - 1 - m),
           config: { mass: 1, tension: 160, friction: 17 },
         }
       : { cx: -20 };
