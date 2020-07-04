@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/harry-potter-spells/static/css/main.ca76d887.chunk.css",
-    "main.js": "/harry-potter-spells/static/js/main.55231cfc.chunk.js",
-    "main.js.map": "/harry-potter-spells/static/js/main.55231cfc.chunk.js.map",
+    "main.js": "/harry-potter-spells/static/js/main.440c2e1b.chunk.js",
+    "main.js.map": "/harry-potter-spells/static/js/main.440c2e1b.chunk.js.map",
     "runtime-main.js": "/harry-potter-spells/static/js/runtime-main.0843ecc4.js",
     "runtime-main.js.map": "/harry-potter-spells/static/js/runtime-main.0843ecc4.js.map",
     "static/css/2.3cb76441.chunk.css": "/harry-potter-spells/static/css/2.3cb76441.chunk.css",
     "static/js/2.736aed42.chunk.js": "/harry-potter-spells/static/js/2.736aed42.chunk.js",
     "static/js/2.736aed42.chunk.js.map": "/harry-potter-spells/static/js/2.736aed42.chunk.js.map",
     "index.html": "/harry-potter-spells/index.html",
-    "precache-manifest.a18034d8c40a5f74ba17ace1140ed413.js": "/harry-potter-spells/precache-manifest.a18034d8c40a5f74ba17ace1140ed413.js",
+    "precache-manifest.338bf41bfdef834639e8d1df28a416a3.js": "/harry-potter-spells/precache-manifest.338bf41bfdef834639e8d1df28a416a3.js",
     "service-worker.js": "/harry-potter-spells/service-worker.js",
     "static/css/2.3cb76441.chunk.css.map": "/harry-potter-spells/static/css/2.3cb76441.chunk.css.map",
     "static/css/main.ca76d887.chunk.css.map": "/harry-potter-spells/static/css/main.ca76d887.chunk.css.map",
@@ -28,6 +28,6 @@
     "static/css/2.3cb76441.chunk.css",
     "static/js/2.736aed42.chunk.js",
     "static/css/main.ca76d887.chunk.css",
-    "static/js/main.55231cfc.chunk.js"
+    "static/js/main.440c2e1b.chunk.js"
   ]
 }
