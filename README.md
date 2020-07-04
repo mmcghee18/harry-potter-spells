@@ -1,5 +1,5 @@
 # Harry Potter Spells
 
-Visualizing spell use across the Harry Potter series. Still a work in progress. 👷🏽‍♀️
+Visualizing every spell in the Harry Potter series.
 
 See it here: https://mmcghee18.github.io/harry-potter-spells/
