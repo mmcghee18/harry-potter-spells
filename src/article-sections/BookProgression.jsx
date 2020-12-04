@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import styled from "styled-components";
 import CustomRadialChart from "../data-viz/CustomRadialChart.jsx";
+import TreeMap from "../data-viz/TreeMap.jsx";
 import _ from "lodash";
 import { writtenThoughts, highlightedSections } from "./bookThoughts.js";
 
@@ -31,6 +32,7 @@ const StepWrapper = styled.div`
   align-items: center;
   width: 240px;
   opacity: ${(props) => (props.$triggered ? 1 : 0.4)};
+  z-index: 1000;
   &:nth-child(1) {
     margin-top: -20vh;
   }
@@ -53,13 +55,7 @@ const BookProgression = ({ spells, spellMentions }) => {
   return !_.isEmpty(spells[currentBook]) ? (
     <Wrapper>
       <ChartWrapper>
-        <CustomRadialChart
-          fullData={spells}
-          mentions={spellMentions}
-          currentBook={currentBook}
-          previousBook={previousBook}
-          highlightedSections={_.get(highlightedSections, currentBook)}
-        />
+        <TreeMap />
       </ChartWrapper>
 
       <ScrollamaWrapper>
