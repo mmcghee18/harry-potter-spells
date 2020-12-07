@@ -5,6 +5,7 @@ import CustomRadialChart from "../data-viz/CustomRadialChart.jsx";
 import TreeMap from "../data-viz/TreeMap.jsx";
 import _ from "lodash";
 import { writtenThoughts, highlightedSections } from "./bookThoughts.js";
+import treeDataByBook from "../data/treeDataByBook.json";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -55,7 +56,7 @@ const BookProgression = ({ spells, spellMentions }) => {
   return !_.isEmpty(spells[currentBook]) ? (
     <Wrapper>
       <ChartWrapper>
-        <TreeMap />
+        <TreeMap data={treeDataByBook[currentBook]} />
       </ChartWrapper>
 
       <ScrollamaWrapper>

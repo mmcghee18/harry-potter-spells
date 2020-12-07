@@ -1,8 +1,9 @@
 import React from "react";
-import fakeData from "../data/flare-2.json";
 import useChartDimensions from "../hooks/useChartDimensions.js";
 import { treemap, hierarchy } from "d3-hierarchy";
 import { scaleOrdinal, schemeCategory10 } from "d3-scale";
+import { spellColors } from "../styles.js";
+import _ from "lodash";
 
 const getParentNode = (node) => {
   let n = node;
@@ -12,20 +13,17 @@ const getParentNode = (node) => {
   return n.data.name;
 };
 
-const TreeMap = () => {
+const TreeMap = ({ data }) => {
   const chartSettings = { marginLeft: 50, marginRight: 50 };
   const [ref, dms] = useChartDimensions(chartSettings);
 
-  const h = hierarchy(fakeData)
-    .sum((d) => d.value)
-    .sort((a, b) => b.value - a.value);
+  const h = hierarchy(data)
+    .sum((d) => d.mentions)
+    .sort((a, b) => b.mentions - a.mentions);
   const tm = treemap().size([dms.boundedWidth, dms.boundedHeight]).padding(1)(
     h
   );
   const leaves = tm.leaves();
-  console.log({ leaves });
-
-  const colorScale = scaleOrdinal(schemeCategory10);
 
   return (
     <div
@@ -50,7 +48,7 @@ const TreeMap = () => {
                 y={y0}
                 height={y1 - y0}
                 width={x1 - x0}
-                fill={colorScale(topParent)}
+                fill={spellColors[_.lowerCase(data.type)]}
               />
             );
           })}
